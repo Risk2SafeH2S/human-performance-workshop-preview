@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Preview of the facilitated Human Performance Workshop for oil and gas teams by H²S Consultants.">
+<meta property="og:title" content="Human Performance Workshop – Preview">
+<meta property="og:description" content="Preview of the facilitated Human Performance Workshop for oil and gas teams by H²S Consultants.">
+<meta property="og:type" content="website">
+<style>:root{color-scheme:light}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Human Performance Workshop Preview</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: facilitated-workshop console. Chapter rail on the left, teaching column in the middle, group/instructor panel on the right. Navy and safety-orange, matching the H²S Consultants course family. */
+:root{
+  --bg:#EEF1F5; --surface:#FFFFFF; --sunk:#E2E7EE; --ink:#172033; --muted:#53617A; --line:#C9D1DD;
+  --navy:#13233F; --navy-2:#2A3B5C; --navy-ink:#FFFFFF; --navy-soft:#DCE4F0;
+  --orange:#E3701F; --orange-soft:#FBE7D6; --orange-ink:#8A3F07;
+  --good:#1F7A4D; --good-soft:#DCEFE4; --bad:#B4302A; --bad-soft:#F6DEDB; --amber:#A86300; --amber-soft:#FBEACB;
+  --f-head:"Archivo","Arial Black",Arial,sans-serif; --f-body:"Source Sans 3","Segoe UI",Arial,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1621; --surface:#172030; --sunk:#1F2A3C; --ink:#E6EBF2; --muted:#9AA8BC; --line:#2F3C52;
+  --navy:#0C1526; --navy-2:#1C2B47; --navy-ink:#FFFFFF; --navy-soft:#223354;
+  --orange:#F08A3C; --orange-soft:#3B2614; --orange-ink:#F7C49A;
+  --good:#5CC48F; --good-soft:#163424; --bad:#F08C84; --bad-soft:#3C1B19; --amber:#E9A445; --amber-soft:#3A2A12; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1621; --surface:#172030; --sunk:#1F2A3C; --ink:#E6EBF2; --muted:#9AA8BC; --line:#2F3C52;
+  --navy:#0C1526; --navy-2:#1C2B47; --navy-ink:#FFFFFF; --navy-soft:#223354;
+  --orange:#F08A3C; --orange-soft:#3B2614; --orange-ink:#F7C49A;
+  --good:#5CC48F; --good-soft:#163424; --bad:#F08C84; --bad-soft:#3C1B19; --amber:#E9A445; --amber-soft:#3A2A12; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.55;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--navy)}
+button{font:inherit;cursor:pointer;color:inherit}
+button:disabled{cursor:not-allowed;opacity:.5}
+:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+main:focus,main:focus-visible{outline:none}
+textarea,input,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 10px;width:100%}
+textarea{min-height:110px;resize:vertical;line-height:1.5}
+textarea:focus,input:focus,select:focus{outline:2px solid var(--navy-2);outline-offset:0}
+h1,h2,h3,h4{font-family:var(--f-head);margin:0;text-wrap:balance;line-height:1.15}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* top bar */
+.top{background:var(--navy);color:var(--navy-ink);position:sticky;top:env(safe-area-inset-top,0px);z-index:30}
+.top .wrap{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.brand{font-family:var(--f-head);font-weight:900;font-size:15px;letter-spacing:.04em;white-space:nowrap}
+.brand small{display:block;font-family:var(--f-body);font-weight:400;font-size:11.5px;letter-spacing:.08em;color:#C9D3E3;text-transform:uppercase}
+.top .sp{flex:1}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:5px 10px;border-radius:999px;background:var(--navy-2);color:#fff;white-space:nowrap}
+.chip.or{background:var(--orange)}
+.chip.gd{background:var(--good)}
+.tbtn{background:transparent;border:1px solid #4A5E82;color:#fff;border-radius:6px;padding:6px 10px;font-size:13.5px;font-family:var(--f-head);font-weight:700}
+.tbtn:hover{background:var(--navy-2)}
+.tbtn.on{background:var(--orange);border-color:var(--orange)}
+.menubtn{display:none}
+
+/* shell */
+.shell{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;padding-block:24px 80px;max-width:1280px;margin:0 auto}
+.shell.wide{grid-template-columns:260px minmax(0,1fr) 300px}
+aside.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 70px);align-self:start;max-height:calc(100vh - 90px);overflow:auto;font-family:var(--f-head)}
+.rail h4{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+.ri{display:grid;grid-template-columns:26px 1fr auto;gap:8px;align-items:center;width:100%;text-align:left;background:none;border:0;color:var(--ink);padding:7px 8px;border-radius:7px;font-size:14px;font-weight:500;line-height:1.25}
+.ri:hover{background:var(--sunk)}
+.ri[aria-current="page"]{background:var(--navy);color:#fff}
+.ri .n{font-family:var(--f-mono);font-size:11.5px;color:var(--muted)}
+.ri[aria-current="page"] .n{color:#C9D3E3}
+.ri .st{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--line)}
+.ri .st.sub{background:var(--good);border-color:var(--good)}
+.ri .st.disc{background:var(--orange);border-color:var(--orange)}
+.ri .st.draft{border-color:var(--orange);border-style:dashed}
+.legend{font-family:var(--f-body);font-size:12px;color:var(--muted);display:grid;gap:3px;margin-top:12px;padding:0 8px}
+.legend span{display:flex;gap:6px;align-items:center}
+.legend i{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--line);display:inline-block}
+
+main{min-width:0}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-ink)}
+h1{font-size:clamp(28px,3.6vw,40px);font-weight:900;margin-top:4px}
+.lede{font-size:18.5px;color:var(--muted);max-width:66ch;margin-top:10px}
+.obj{margin-top:20px;border-left:4px solid var(--orange);background:var(--surface);padding:12px 16px;border-radius:0 8px 8px 0;max-width:72ch}
+.obj b{font-family:var(--f-head);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-ink);display:block;margin-bottom:2px}
+.obj p{margin:0}
+.tabs{display:flex;gap:6px;margin-top:26px;border-bottom:2px solid var(--line);flex-wrap:wrap}
+.tab{background:none;border:0;padding:10px 14px;font-family:var(--f-head);font-weight:700;font-size:14px;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--orange)}
+.tab .cnt{font-family:var(--f-mono);font-size:11px;background:var(--sunk);padding:1px 6px;border-radius:999px;margin-left:6px;color:var(--ink)}
+.prose{max-width:70ch}
+.prose h2{font-size:24px;font-weight:800;margin:34px 0 10px}
+.prose h3{font-size:18px;font-weight:700;margin:22px 0 6px}
+.prose p{margin:0 0 12px}
+.prose ul,.prose ol{margin:0 0 12px;padding-left:22px}
+.prose li{margin-bottom:5px}
+.prose .src{font-size:13.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:22px}
+.callout{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:14px 0}
+.callout.or{border-color:var(--orange);background:var(--orange-soft)}
+.callout h4{font-size:15px;font-weight:800;margin-bottom:4px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.card h4{font-size:15.5px;font-weight:800;margin-bottom:4px;color:var(--navy-2)}
+.card p{margin:0;font-size:15px;color:var(--muted)}
+.tbl{overflow-x:auto;margin:10px 0 16px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:15px;background:var(--surface)}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-head);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+td:first-child{font-weight:600}
+/* reveal interactions */
+.rev{border:1px solid var(--line);border-radius:10px;background:var(--surface);margin:10px 0;overflow:hidden}
+.rev>button{width:100%;text-align:left;background:none;border:0;padding:12px 16px;font-family:var(--f-head);font-weight:700;font-size:15.5px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.rev>button::after{content:"+";font-size:20px;color:var(--orange);flex:none}
+.rev.open>button::after{content:"−"}
+.rev .body{display:none;padding:0 16px 14px;color:var(--ink)}
+.rev.open .body{display:block}
+.rev .body p{margin:0 0 8px}
+.sortq{display:grid;gap:8px;margin:12px 0}
+.sortq .it{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 12px}
+.sortq .it.ok{border-color:var(--good);background:var(--good-soft)}
+.sortq .it.no{border-color:var(--bad);background:var(--bad-soft)}
+.sortq .opts{display:flex;gap:5px}
+.sortq .opts button{border:1px solid var(--line);background:var(--sunk);border-radius:6px;padding:4px 9px;font-size:13px;font-weight:600}
+.sortq .opts button.sel{background:var(--navy);color:#fff;border-color:var(--navy)}
+.fb{font-size:14.5px;color:var(--muted);margin-top:6px}
+
+/* exercise */
+.ex{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:18px}
+.ex-h{background:var(--navy);color:#fff;padding:16px 20px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline}
+.ex-h .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#F2A15F}
+.ex-h h3{font-size:19px;font-weight:800;color:#fff}
+.ex-h .time{margin-left:auto;font-size:13px;color:#C9D3E3;white-space:nowrap}
+.ex-b{padding:18px 20px}
+.scn{background:var(--sunk);border-radius:10px;padding:14px 16px;margin-bottom:18px}
+.scn h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.scn p{margin:0 0 8px}
+.scn ul{margin:0 0 6px;padding-left:20px}
+.scn .tag{display:inline-block;font-family:var(--f-mono);font-size:11px;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:1px 6px;margin:0 4px 6px 0;color:var(--muted)}
+.q{margin-bottom:18px}
+.q label{display:block;font-family:var(--f-head);font-weight:700;font-size:15.5px;margin-bottom:3px}
+.q .hint{font-size:14px;color:var(--muted);margin:0 0 6px}
+.q .ans{white-space:pre-wrap;background:var(--sunk);border-radius:6px;padding:10px 12px;font-size:15px}
+.status{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:14px 20px;border-top:1px solid var(--line);background:var(--sunk)}
+.btn{background:var(--orange);color:#fff;border:0;border-radius:7px;padding:10px 18px;font-family:var(--f-head);font-weight:800;font-size:14.5px}
+.btn:hover:not(:disabled){filter:brightness(1.07)}
+.btn.sec{background:var(--navy-2)}
+.btn.gh{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.note{font-size:14px;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px}
+.pill.sub{background:var(--good-soft);color:var(--good)}
+.pill.draft{background:var(--orange-soft);color:var(--orange-ink)}
+.pill.disc{background:var(--navy-soft);color:var(--navy-2)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.3);max-width:calc(100% - 32px)}
+
+/* side panel */
+aside.panel{position:sticky;top:calc(env(safe-area-inset-top,0px) + 70px);align-self:start;max-height:calc(100vh - 90px);overflow:auto;display:grid;gap:12px}
+.pbox{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.pbox h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.pbox .big{font-family:var(--f-head);font-weight:800;font-size:18px}
+.pbox .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.pbox .sm{font-size:13.5px;color:var(--muted)}
+.pbox ul{margin:6px 0 0;padding-left:18px;font-size:14px}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:12.5px;font-weight:700;color:var(--muted);margin-bottom:3px}
+
+/* instructor */
+.ins h1{font-size:30px}
+.matrix{overflow-x:auto;margin-top:14px}
+.matrix table{min-width:640px}
+.matrix td,.matrix th{text-align:center}
+.matrix td:first-child,.matrix th:first-child{text-align:left}
+.cell{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:7px;border:1px solid var(--line);background:var(--sunk);font-size:12px;font-weight:800}
+.cell.sub{background:var(--good);color:#fff;border-color:var(--good)}
+.cell.disc{background:var(--navy-2);color:#fff;border-color:var(--navy-2)}
+.cell.draft{border-color:var(--orange);color:var(--orange-ink);border-style:dashed}
+button.cell{cursor:pointer}
+.subview{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-top:16px}
+.subview .meta{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px;color:var(--muted);margin-bottom:12px}
+.fac{background:var(--amber-soft);border:1px solid var(--amber);border-radius:10px;padding:14px 16px;margin-top:16px}
+.fac h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+.fac ul{margin:0;padding-left:20px;font-size:15px}
+.fac li{margin-bottom:4px}
+.grp-list{display:grid;gap:8px;margin-top:8px}
+.grp{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:var(--sunk);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.grp b{font-family:var(--f-head)}
+.grp .sm{color:var(--muted);font-size:13px}
+.warn{background:var(--amber-soft);border-left:4px solid var(--amber);padding:10px 14px;border-radius:0 8px 8px 0;font-size:14.5px;margin:12px 0}
+
+@media (max-width:1100px){.shell.wide{grid-template-columns:240px minmax(0,1fr)}aside.panel{position:static;max-height:none;grid-column:1/-1;grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){
+  .shell,.shell.wide{grid-template-columns:1fr;gap:16px}
+  aside.rail{position:fixed;z-index:35;top:env(safe-area-inset-top,0px);bottom:0;left:0;width:min(300px,86vw);background:var(--surface);padding:14px;padding-left:max(14px,env(safe-area-inset-left,0px));max-height:none;transform:translateX(-105%);transition:transform .25s;box-shadow:8px 0 30px rgba(0,0,0,.3)}
+  aside.rail.open{transform:none}
+  .menubtn{display:inline-block}
+  aside.panel{grid-template-columns:1fr}
+  .grid2,.grid3{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ART_CSS */
+</style>
+
+<header class="top"><div class="wrap">
+  <button class="tbtn menubtn" id="menuBtn" aria-expanded="false" aria-controls="rail">Chapters</button>
+  <div class="brand">HUMAN PERFORMANCE WORKSHOP<small>Course preview · H²S Consultants</small></div><span class="chip or">PREVIEW</span>
+  <span class="sp"></span>
+  <span class="chip" id="modeChip">Loading…</span>
+  <button class="tbtn" id="insBtn" hidden>Instructor</button>
+</div></header>
+
+<div class="wrap"><div class="shell wide" id="shell">
+  <aside class="rail" id="rail" aria-label="Chapters"></aside>
+  <main id="main" tabindex="-1"></main>
+  <aside class="panel" id="panel"></aside>
+</div></div>
+
+<script>
+/* =====================================================================
+   LINE ILLUSTRATIONS (inline SVG, 800x280 banners)
+   ===================================================================== */
+const ART_CSS=`
+.hero{margin:18px 0 4px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.hero svg{display:block;width:100%;height:auto}
+.hero.sm{max-width:420px;margin:0 0 14px;float:right;margin-left:18px}
+.a-ln{fill:none;stroke:#13233F;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.a-lt{fill:none;stroke:#13233F;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.a-lf{fill:#F1E8D6;stroke:#13233F;stroke-width:3;stroke-linejoin:round}
+.a-lw{fill:#FFFFFF;stroke:#13233F;stroke-width:3;stroke-linejoin:round}
+.a-mt{fill:#B9C3D1;stroke:#13233F;stroke-width:3;stroke-linejoin:round}
+.a-nv{fill:#2A3B5C;stroke:#13233F;stroke-width:3;stroke-linejoin:round}
+.a-or{fill:#E3701F;stroke:#13233F;stroke-width:3;stroke-linejoin:round}
+.a-ors{fill:#F8CFA8;stroke:#13233F;stroke-width:3;stroke-linejoin:round}
+.a-sky{fill:#E6EDF5}.a-sand{fill:#F1E8D6}.a-night{fill:#1B2A47}
+.a-red{fill:none;stroke:#BC3528;stroke-width:4;stroke-dasharray:9 7;stroke-linecap:round}
+.a-tx{fill:#13233F;font-family:"Archivo",Arial,sans-serif;font-weight:800;font-size:16px}
+.a-txs{fill:#53617A;font-family:"Source Sans 3",Arial,sans-serif;font-weight:600;font-size:13px}
+@media (max-width:700px){.hero.sm{float:none;max-width:none;margin:0 0 14px}}`;
+
+/* helpers used inside the SVG strings */
+const PERSON=(x,y,cls="a-or",flip=false)=>`<g transform="translate(${x} ${y})${flip?" scale(-1 1)":""}">
+<circle cx="0" cy="-62" r="11" class="a-lw"/><path d="M-14 -66 h28 l-3 -10 h-22z" class="a-lw"/>
+<path d="M-13 -48 h26 l5 44 h-36z" class="${cls}"/><path d="M-9 -4 l-3 40 M9 -4 l3 40" class="a-ln"/>
+<path d="M-13 -40 l-14 26 M13 -40 l14 26" class="a-ln"/></g>`;
+const PIPE=(x1,y1,x2,y2)=>`<path d="M${x1} ${y1} L${x2} ${y2}" stroke="#13233F" stroke-width="11" stroke-linecap="round"/><path d="M${x1} ${y1} L${x2} ${y2}" stroke="#B9C3D1" stroke-width="6" stroke-linecap="round"/>`;
+const VALVE=(x,y,s=1,cls="a-mt")=>`<g transform="translate(${x} ${y}) scale(${s})"><path d="M-16 -12 L0 0 L-16 12z M16 -12 L0 0 L16 12z" class="${cls}"/><path d="M0 0 v-20" class="a-ln"/><ellipse cx="0" cy="-24" rx="14" ry="5" class="a-lw"/></g>`;
+const GAUGE=(x,y,r=14)=>`<circle cx="${x}" cy="${y}" r="${r}" class="a-lw"/><path d="M${x} ${y} l${r*0.6} -${r*0.5}" class="a-ln"/><circle cx="${x}" cy="${y}" r="2" fill="#13233F"/>`;
+const FLARE=(x,y)=>`<path d="M${x} ${y} v-120" stroke="#13233F" stroke-width="6" stroke-linecap="round"/><path d="M${x-14} ${y-20} h28 M${x-10} ${y-60} h20" class="a-lt"/><path d="M${x} ${y-120} c-14 -20 2 -34 4 -52 c10 20 22 30 2 52z" class="a-or"/>`;
+const SUN=(x,y,r)=>`<circle cx="${x}" cy="${y}" r="${r}" class="a-or"/>`;
+const CLOUDTEXT=(x,y,w,t)=>`<rect x="${x}" y="${y}" width="${w}" height="28" rx="6" class="a-lw"/><text x="${x+w/2}" y="${y+19}" text-anchor="middle" class="a-txs">${t}</text>`;
+
+const ART={
+cover:`<svg viewBox="0 0 800 280" role="img" aria-label="Field operator at a gas plant at dusk checking a valve tag">
+<rect width="800" height="280" class="a-sky"/><rect y="200" width="800" height="80" class="a-sand"/>
+${SUN(640,80,34)}
+<g class="a-lt"><path d="M560 200 V90 h60 V200 M580 200 V120 M600 200 V120 M620 200 V120"/><rect x="480" y="130" width="60" height="70" class="a-mt"/><rect x="690" y="150" width="50" height="50" class="a-mt"/></g>
+${FLARE(760,200)}
+${PIPE(40,170,440,170)}${PIPE(40,150,440,150)}
+${VALVE(250,170,1.1)}${VALVE(330,170,1.1,"a-or")}
+<rect x="306" y="186" width="48" height="18" rx="3" class="a-lw"/><text x="330" y="199" text-anchor="middle" class="a-txs" font-size="11">XV-2102</text>
+${PERSON(150,236,"a-or")}
+<path d="M163 196 l20 -22" class="a-ln"/><rect x="178" y="166" width="14" height="22" rx="3" class="a-nv"/>
+<path d="M190 176 c40 -30 80 -30 120 -8" class="a-red"/>
+<text x="40" y="60" class="a-tx" font-size="22">People · Plant · Process</text>
+<text x="40" y="84" class="a-txs">How they work together decides whether the barrier holds.</text>
+</svg>`,
+
+c1:`<svg viewBox="0 0 800 280" role="img" aria-label="People, plant and process as three connected parts of one system">
+<rect width="800" height="280" class="a-sky"/>
+<path d="M200 80 L600 80 L400 240 Z" class="a-lt" stroke-dasharray="8 8"/>
+<g transform="translate(200 80)"><circle r="54" class="a-lw"/>${PERSON(-18,30,"a-or")}${PERSON(18,30,"a-nv",true)}<text y="78" text-anchor="middle" class="a-tx">PEOPLE</text></g>
+<g transform="translate(600 80)"><circle r="54" class="a-lw"/><rect x="-22" y="-36" width="44" height="70" rx="14" class="a-mt"/><path d="M-22 -10 h-20 M22 -10 h20 M0 34 v14" class="a-ln"/>${GAUGE(0,-48,9)}<text y="78" text-anchor="middle" class="a-tx">PLANT</text></g>
+<g transform="translate(400 215)"><circle r="54" class="a-lw"/><rect x="-26" y="-34" width="52" height="64" rx="4" class="a-lf"/><path d="M-16 -18 h32 M-16 -6 h32 M-16 6 h20" class="a-ln"/><rect x="-10" y="-40" width="20" height="10" rx="3" class="a-nv"/><text y="-64" text-anchor="middle" class="a-tx">PROCESS</text></g>
+<text x="40" y="236" class="a-tx" font-size="20">Human performance</text><text x="40" y="258" class="a-txs">is about how these interact as one system.</text>
+</svg>`,
+
+c2:`<svg viewBox="0 0 800 280" role="img" aria-label="A technician interrupted by a radio call leaves a bypass switch in">
+<rect width="800" height="280" class="a-sky"/><rect y="210" width="800" height="70" fill="#B9C3D1"/>
+<path d="M0 210 h800" class="a-ln"/><path d="M60 210 l20 -30 M140 210 l-20 -30 M660 210 l20 -30 M740 210 l-20 -30" class="a-lt"/>
+<rect x="330" y="60" width="180" height="150" rx="6" class="a-lw"/><rect x="345" y="75" width="150" height="60" rx="4" class="a-nv"/>
+<g transform="translate(360 165)"><rect x="-12" y="-14" width="24" height="28" rx="4" class="a-or"/><text x="30" y="5" class="a-txs">BYPASS</text></g>
+<circle cx="470" cy="165" r="10" class="a-mt"/><circle cx="470" cy="190" r="10" class="a-mt"/>
+<path d="M330 150 l-2 -40 a40 40 0 0 1 40 -40" class="a-red"/>
+${PERSON(230,236,"a-or")}
+<path d="M243 196 l10 -36" class="a-ln"/><rect x="246" y="146" width="12" height="20" rx="3" class="a-nv"/><path d="M262 150 c8 -8 12 -12 20 -20 M266 158 c10 -8 16 -14 26 -24" class="a-lt"/>
+<text x="560" y="110" class="a-tx" font-size="18">Lapse</text><text x="560" y="132" class="a-txs">A step forgotten after</text><text x="560" y="150" class="a-txs">an interruption.</text>
+</svg>`,
+
+c3:`<svg viewBox="0 0 800 280" role="img" aria-label="Night pigging at a desert gathering station with one floodlight working">
+<rect width="800" height="280" class="a-night"/><circle cx="700" cy="60" r="26" fill="#F1E8D6"/>
+<path d="M0 220 q100 -30 200 0 t200 0 t200 0 t200 0 V280 H0z" class="a-sand"/>
+<path d="M120 220 v-150 h6 v150" fill="#13233F"/><path d="M110 70 h26 l-6 -14 h-14z" class="a-or"/><path d="M123 84 L60 220 M123 84 L300 220" fill="#F8CFA8" fill-opacity=".35" stroke="none"/><path d="M123 84 L60 220 L300 220z" fill="#F8CFA8" fill-opacity=".25"/>
+<path d="M520 220 v-150 h6 v150" fill="#13233F"/><path d="M510 70 h26 l-6 -14 h-14z" class="a-mt"/><path d="M515 56 l16 16 M531 56 l-16 16" stroke="#BC3528" stroke-width="3"/>
+<rect x="250" y="150" width="260" height="56" rx="26" class="a-mt"/><rect x="236" y="140" width="22" height="76" rx="6" class="a-or"/>
+<path d="M470 150 v-60" class="a-ln"/>${GAUGE(470,78,14)}
+<path d="M420 220 l24 -70 M444 220 l-24 -70 M424 200 h26 M428 185 h22" class="a-ln"/>
+${PERSON(434,166,"a-or")}
+${PERSON(320,236,"a-nv",true)}<rect x="330" y="176" width="30" height="40" rx="3" class="a-lf"/><path d="M336 186 h18 M336 196 h18 M336 206 h12" class="a-lt"/>
+<text x="40" y="50" fill="#F1E8D6" class="a-tx" font-size="18" style="fill:#F1E8D6">02:40 · 38 °C · 11th night</text>
+<text x="40" y="74" class="a-txs" style="fill:#B9C3D1">Which conditions here make an error more likely?</text>
+</svg>`,
+
+c4:`<svg viewBox="0 0 800 280" role="img" aria-label="A lift as drawn on the plan and the same lift as it happens on site">
+<rect width="800" height="280" class="a-sky"/><path d="M400 20 v240" class="a-lt" stroke-dasharray="6 6"/>
+<text x="200" y="40" text-anchor="middle" class="a-tx">WORK-AS-IMAGINED</text><text x="600" y="40" text-anchor="middle" class="a-tx">WORK-AS-DONE</text>
+<g transform="translate(60 60)"><path d="M40 170 h200 M60 170 v-70 h160 v70 M70 100 l140 70 M210 100 l-140 70" class="a-lt"/><rect x="70" y="40" width="140" height="30" rx="4" class="a-nv"/><path d="M140 40 v-30 h0" class="a-ln"/><path d="M140 10 h90 v-10" class="a-ln"/><path d="M130 20 l10 -14 l10 14" class="a-ln"/><path d="M230 70 v30 M230 100 h-20" class="a-lt"/><path d="M218 50 l-8 6 l8 6 M232 50 l8 6 l-8 6" class="a-ln" stroke="#1F7A4D"/></g>
+<g transform="translate(460 60)"><path d="M40 170 h200 M60 170 v-70 h160 v70 M70 100 l140 70 M210 100 l-140 70" class="a-lt"/><rect x="66" y="84" width="140" height="30" rx="4" class="a-nv"/><path d="M136 84 v-74" class="a-ln"/><path d="M136 10 h90 v-10" class="a-ln"/><path d="M60 114 l-14 8 l14 8z" class="a-or"/><path d="M206 92 h24 v30" class="a-ln" stroke="#BC3528"/>${PERSON(246,170,"a-or",true)}<path d="M232 140 l-20 -26" class="a-ln"/></g>
+<text x="400" y="262" text-anchor="middle" class="a-txs">Same task, two pictures. Which one was the procedure written from?</text>
+</svg>`,
+
+c5:`<svg viewBox="0 0 800 280" role="img" aria-label="Two operators walking a manifold of identical valves with a marked-up procedure">
+<rect width="800" height="280" class="a-sky"/><rect y="200" width="800" height="80" class="a-sand"/>
+${PIPE(60,160,740,160)}
+${[0,1,2,3,4,5,6,7].map(i=>VALVE(130+i*70,160,1,i===4?"a-or":"a-mt")).join("")}
+${[0,1,2,3,4,5,6,7].map(i=>`<rect x="${112+i*70}" y="178" width="36" height="14" rx="2" class="a-lw" fill-opacity="${i===4?1:.5}"/>`).join("")}
+<path d="M410 110 l0 24" class="a-ln" stroke="#BC3528"/><path d="M402 128 l8 10 l8 -10" class="a-ln" stroke="#BC3528"/>
+${PERSON(470,236,"a-or")}<path d="M457 196 l-30 -40" class="a-ln"/>
+${PERSON(560,236,"a-nv")}<rect x="566" y="176" width="32" height="42" rx="3" class="a-lf"/><path d="M572 186 h20 M572 196 h20 M572 206 h14" class="a-lt"/><path d="M574 184 l4 4 l8 -8" class="a-ln" stroke="#1F7A4D"/>
+<text x="40" y="50" class="a-tx" font-size="18">Which step is critical?</text><text x="40" y="74" class="a-txs">Eight identical handwheels. One tag that must be read aloud.</text>
+</svg>`,
+
+c6:`<svg viewBox="0 0 800 280" role="img" aria-label="A control panel before and after redesign for the way people expect it to work">
+<rect width="800" height="280" class="a-sky"/>
+<text x="200" y="40" text-anchor="middle" class="a-tx">AS SUPPLIED</text><text x="600" y="40" text-anchor="middle" class="a-tx">AS REDESIGNED</text>
+<g transform="translate(90 60)"><rect width="220" height="150" rx="8" class="a-lw"/>
+${[0,1,2,3].map(i=>`<circle cx="${40+i*48}" cy="50" r="15" fill="#1F7A4D" stroke="#13233F" stroke-width="3"/><circle cx="${40+i*48}" cy="105" r="15" fill="#BC3528" stroke="#13233F" stroke-width="3"/>`).join("")}
+<path d="M40 70 L88 85" class="a-red"/><text x="110" y="140" text-anchor="middle" class="a-txs">A START above B STOP</text></g>
+<g transform="translate(490 60)"><rect width="220" height="150" rx="8" class="a-lw"/>
+${[0,1,2,3].map(i=>`<rect x="${14+i*50}" y="14" width="42" height="122" rx="6" class="a-lf"/><text x="${35+i*50}" y="34" text-anchor="middle" class="a-txs" font-size="12">P-${i+1}</text><circle cx="${35+i*50}" cy="60" r="13" fill="#1F7A4D" stroke="#13233F" stroke-width="3"/><circle cx="${35+i*50}" cy="60" r="18" class="a-lt"/><circle cx="${35+i*50}" cy="108" r="13" fill="#BC3528" stroke="#13233F" stroke-width="3"/>`).join("")}</g>
+<text x="400" y="250" text-anchor="middle" class="a-txs">Simplicity · Expectations · Consistency · Access</text>
+</svg>`,
+
+c7:`<svg viewBox="0 0 800 280" role="img" aria-label="Turnaround workers resting in shade at dawn after a night shift">
+<rect width="800" height="280" class="a-sky"/>${SUN(690,70,40)}<rect y="210" width="800" height="70" class="a-sand"/>
+<g class="a-lt"><path d="M520 210 V60 h40 V210 M560 120 h60 V210 M620 160 h50 V210"/><path d="M530 80 h20 M530 110 h20 M530 140 h20 M530 170 h20 M580 140 h20 M580 170 h20"/></g>
+<rect x="60" y="80" width="260" height="14" class="a-nv"/><path d="M70 94 v116 M310 94 v116" class="a-ln"/><path d="M60 94 L320 94 L300 180 L80 180z" fill="#13233F" fill-opacity=".08"/>
+${PERSON(130,206,"a-or")}${PERSON(190,206,"a-nv")}${PERSON(250,206,"a-or")}
+<path d="M242 150 l-10 -8 M258 150 l10 -8" class="a-lt"/>
+<g transform="translate(400 150)"><circle r="34" class="a-lw"/><path d="M0 -34 v6 M34 0 h-6 M0 34 v-6 M-34 0 h6" class="a-lt"/><path d="M0 0 v-24 M0 0 l12 10" class="a-ln"/><text y="56" text-anchor="middle" class="a-txs">05:40 · day 22 of 28</text></g>
+<rect x="140" y="170" width="10" height="16" rx="2" class="a-lw"/><rect x="200" y="170" width="10" height="16" rx="2" class="a-lw"/>
+<text x="40" y="50" class="a-tx" font-size="18">Sleep debt does not clear in one night.</text>
+</svg>`,
+
+c8:`<svg viewBox="0 0 800 280" role="img" aria-label="Control room during an alarm flood with an operator fixated on one screen">
+<rect width="800" height="280" class="a-night"/><rect x="40" y="30" width="720" height="150" rx="8" fill="#0F1C33" stroke="#13233F" stroke-width="3"/>
+<rect x="60" y="45" width="130" height="90" rx="4" class="a-lw"/><path d="M70 120 l20 -30 l16 18 l24 -40 l20 26 l24 -46" class="a-ln" stroke="#E3701F"/>
+<rect x="205" y="45" width="130" height="90" rx="4" class="a-lw"/>${[0,1,2,3,4,5].map(i=>`<rect x="212" y="${52+i*13}" width="116" height="10" rx="2" fill="${i<4?"#E3701F":"#F8CFA8"}"/>`).join("")}
+<rect x="350" y="45" width="130" height="90" rx="4" class="a-lw"/>${[0,1,2,3,4,5].map(i=>`<rect x="357" y="${52+i*13}" width="116" height="10" rx="2" fill="${i<5?"#BC3528":"#F8CFA8"}"/>`).join("")}
+<rect x="495" y="45" width="130" height="90" rx="4" class="a-lw"/><path d="M505 110 h110 M505 95 h110 M505 80 h110" class="a-lt"/><rect x="510" y="60" width="40" height="12" rx="2" fill="#B9C3D1"/>
+<rect x="640" y="45" width="100" height="90" rx="4" class="a-lw"/><text x="690" y="97" text-anchor="middle" class="a-tx" font-size="28" fill="#BC3528" style="fill:#BC3528">70</text><text x="690" y="118" text-anchor="middle" class="a-txs" font-size="11">alarms / 4 min</text>
+<rect x="40" y="200" width="720" height="14" class="a-nv"/>
+${PERSON(125,250,"a-or")}<path d="M112 210 l0 -12" class="a-ln"/><path d="M98 150 l20 44" class="a-red"/>
+${PERSON(420,250,"a-nv")}<rect x="440" y="196" width="14" height="22" rx="3" class="a-or"/>
+${PERSON(700,250,"a-mt",true)}<path d="M686 200 l-22 -8" class="a-ln"/>
+<text x="40" y="240" style="fill:#F1E8D6" class="a-tx" font-size="16">03:31 · "Close the bypass" · no tag, no repeat-back</text>
+</svg>`,
+
+c9:`<svg viewBox="0 0 800 280" role="img" aria-label="Shift handover beside a strainer with a written log and a repeat-back">
+<rect width="800" height="280" class="a-sky"/><rect y="210" width="800" height="70" class="a-sand"/>
+${PIPE(560,150,780,150)}<rect x="590" y="110" width="70" height="80" rx="10" class="a-mt"/><rect x="580" y="100" width="90" height="16" rx="4" class="a-nv"/>${GAUGE(625,80,14)}<path d="M625 94 v6" class="a-ln"/>
+${VALVE(700,190,0.9)}<text x="625" y="208" text-anchor="middle" class="a-txs" font-size="11">P-301A · 6 barg</text>
+<rect x="330" y="120" width="120" height="80" rx="4" class="a-lf"/><path d="M345 140 h90 M345 155 h90 M345 170 h60" class="a-lt"/><path d="M390 200 v20 M370 220 h40" class="a-ln"/>
+${PERSON(260,236,"a-or")}<path d="M273 196 l50 -42" class="a-ln"/>
+${PERSON(510,236,"a-nv",true)}<path d="M497 196 l-30 -30" class="a-ln"/>
+${CLOUDTEXT(90,60,290,"Strainer A still pressurised, not drained")}
+${CLOUDTEXT(420,60,290,"A pressurised, not drained. Understood.")}
+<path d="M250 88 l10 14 M560 88 l-10 14" class="a-lt"/>
+<path d="M60 150 h40 v40 h-40z" class="a-lw"/><text x="80" y="176" text-anchor="middle" class="a-tx" font-size="14">3</text><text x="80" y="214" text-anchor="middle" class="a-txs" font-size="11">three-way</text>
+</svg>`,
+
+c10:`<svg viewBox="0 0 800 280" role="img" aria-label="A manager listening at a toolbox talk while a technician explains a timeline">
+<rect width="800" height="280" class="a-sky"/><rect y="210" width="800" height="70" class="a-sand"/>
+<g class="a-lt"><path d="M640 210 V70 h50 V210 M700 210 V110 h60 V210"/><rect x="655" y="40" width="20" height="30" rx="10" class="a-mt"/><path d="M650 90 h30 M650 120 h30 M650 150 h30"/></g>
+<rect x="60" y="60" width="220" height="130" rx="4" class="a-lw"/><path d="M60 190 l-10 40 M280 190 l10 40" class="a-ln"/>
+<path d="M80 125 h180" class="a-ln"/>${[0,1,2,3].map(i=>`<rect x="${86+i*48}" y="100" width="30" height="22" rx="3" class="${i===3?"a-or":"a-lf"}"/><path d="M${101+i*48} 122 v6" class="a-lt"/>`).join("")}
+<path d="M96 160 h150" class="a-lt"/><text x="170" y="178" text-anchor="middle" class="a-txs" font-size="11">why it made sense at the time</text>
+${PERSON(330,236,"a-or")}<path d="M343 196 l-40 -60" class="a-ln"/>
+${PERSON(430,236,"a-lw")}${PERSON(490,236,"a-nv")}${PERSON(550,236,"a-or")}
+<path d="M420 180 l-2 -10 M440 180 l2 -10" class="a-lt"/>
+<text x="330" y="50" class="a-tx" font-size="18">Listen first.</text><text x="330" y="74" class="a-txs">What the manager does next sets the culture.</text>
+</svg>`
+};
+
+/* =====================================================================
+   COURSE CONTENT
+   Sources: Energy Institute human performance learning resource; HSE HSG48;
+   EI/CIEHF situation-awareness support tools; POST note 156 (Managing human error).
+   Scenarios are composites set in the Gulf region. No company is named.
+   ===================================================================== */
+const CH=[
+{id:"c1",n:"1",t:"What human performance is",obj:"Explain human performance as the interaction of people, plant and process, and tell an outdated response to an incident from a modern one.",
+learn:`
+<h2>People, plant and process</h2>
+<p>Human performance is about understanding how people interact with plant, processes and each other as part of a system, so that risk is managed and people stay safe. It draws on human factors, behaviours, ergonomics, culture, fatigue management, leadership and engineering.</p>
+<div class="callout or"><h4>Five things the approach accepts</h4><ul>
+<li>People <b>will</b> make errors, however well trained and motivated.</li>
+<li>Their actions are rarely malicious and usually made sense to them at the time.</li>
+<li>Errors are typically produced by underlying conditions and systems.</li>
+<li>Leaders shape those conditions, and how leaders respond when things go wrong matters.</li>
+<li>Learning comes from looking past the individual act to the conditions that would put the next person in the same place.</li></ul></div>
+<h2>Outdated view and modern view</h2>
+<div class="grid2"><div class="card"><h4>Outdated view</h4><p>Incidents are caused by individuals and their acts. Improvement means changing the attitude and behaviour of the person: retrain, discipline, remind them to take care.</p></div>
+<div class="card"><h4>Modern view</h4><p>Incidents result from interactions between people, plant and process. The individual is one element. Improvement means changing the system so that <b>nobody</b> can make that error in future.</p></div></div>
+<p>The familiar claim that "80% of accidents are caused by human error" is only true if the investigation stops there. Ask what sat behind the error and you usually find the systems and conditions people worked with.</p>
+<h2>Inside and outside perspectives</h2>
+<p>From the outside, after the event, the wrong turns are obvious. From the inside, in the moment, the outcome is not known. People steer the sequence of events on what they can see, and their actions make sense to them at that moment. Good investigations and good design start from the inside view.</p>
+<h2>Scenario: the reinstated supply</h2>
+<p>During a plant shutdown a technician isolated a section of electrical equipment, following a procedure that was ambiguous about what "isolate" covered. After shift change a second technician completed the work and reinstated the supply, not only to the section he had worked on but also to a nearby section that someone else had isolated for separate work. An arc flash followed. The colleague who should have been standing there was on a break.</p>
+<div class="rev"><button type="button">What a blame-focused response would do</button><div class="body"><p>Discipline the second technician, retrain him on isolation and reinstatement, and remind everyone to follow procedures. The ambiguous procedure and the poor shift handover remain, and the error waits for the next person.</p></div></div>
+<div class="rev"><button type="button">What a systems response would do</button><div class="body"><p>Ask why reinstating both sections made sense to him. Then: make the procedure state exactly what is isolated and reinstated; stop several similar isolations running at once; make it physically hard to operate the wrong switchgear (locks at isolation points); improve what is handed over at shift change; and add independent verification for safety-critical reinstatement.</p></div></div>
+<h3>Sort it</h3><p>Decide whether each management action belongs to the outdated or the modern view.</p>
+<div class="sortq" data-sort='[["Understand how the task is really performed before writing the procedure","Modern"],["Discipline the contractor who made the error","Outdated"],["Rely on training as the main way to reduce errors","Outdated"],["Design the equipment with likely errors in mind","Modern"],["Add a physical lock so the wrong switchgear cannot be operated","Modern"]]' data-opts='["Outdated","Modern"]'></div>
+<p class="src">Based on the Energy Institute human performance learning resource (What is human performance; Understanding incidents) and HSE HSG48 Chapter 2.</p>`,
+ex:{title:"The wrong valve at a gas plant",time:"35 minutes",
+scn:`<p><span class="tag">Onshore gas processing plant · Gulf region</span><span class="tag">Day shift · 44 °C</span></p>
+<p>A field operator was asked by the control room to open the bypass around a glycol contactor level control valve so that maintenance could change the positioner. The bypass and the drain to the closed drain header are both 2-inch manual valves, side by side on the same stand, painted the same colour, with tags that face the pipe rack rather than the walkway. The operator opened the drain instead of the bypass. Glycol and sour gas went to the closed drain system, the drain drum high-level alarm came in and the plant tripped on low glycol level. Nobody was hurt.</p>
+<p>At the review meeting the production manager proposed the following actions:</p>
+<ol><li>Issue a written warning to the operator for failing to verify the valve tag.</li><li>Re-brief all operators on "stop, think, check" before operating any valve.</li><li>Add the valve numbers to the control room instruction so that the operator is told which tag to look for.</li><li>Require a second operator to witness all manual valve operations during maintenance activities.</li><li>Record the event as "human error" in the incident system and close it.</li></ol>`,
+qs:[
+{l:"1. Classify each proposed action",h:"For actions 1 to 5, say whether it reflects the outdated view or the modern view, and give a one-line reason."},
+{l:"2. Why did the operator's action make sense at the time?",h:"Write from the inside perspective. What did the operator see, know and expect at that moment? List at least four conditions."},
+{l:"3. Rewrite the action list",h:"Give the group's own list of five actions, ordered from most to least effective. Say which conditions each one removes."},
+{l:"4. The message to the production manager",h:"In three sentences, what would you say to the manager about closing the event as 'human error'?"}],
+fac:["Actions 1, 2 and 5 are outdated; 3 is a partial improvement; 4 adds a check but relies on a second person's attention and will erode under time pressure. Good groups notice that 4 doubles the workload during every maintenance job.","Inside view: identical adjacent valves, tags facing away, no local position indicator, instruction given by valve function not tag, heat and glare, pressure to get maintenance started, and the operator's expectation that the bypass is 'the left one' from previous jobs.","Strong rewrites include: differentiate the valves (colour, handwheel size, separation), turn or duplicate tags to face the walkway, give the instruction by tag number and have it repeated back (3-way), add a local label 'DRAIN – TO CLOSED DRAIN', and review every similar valve pair on the unit. Note the hierarchy: engineering first, then information, then checks.","Watch for groups that keep 'retrain the operator' as their top action. Ask them what the training would change about the valve stand.","Message to the manager: closing as human error leaves identical valve pairs across the plant; the next operator meets the same trap; the review should produce changes to the plant and the instruction, not to the person."]}},
+
+{id:"c2",n:"2",t:"Understanding human failure",obj:"Classify human failures as slips, lapses, mistakes or violations, and match each type to the kind of control that works on it.",
+learn:`
+<h2>Errors and violations</h2>
+<p>HSG48 divides human failure into <b>errors</b>, which are unintended, and <b>violations</b>, which are deliberate departures from rules or procedures. The person who commits a violation almost never intends the harmful outcome.</p>
+<div class="tbl"><table><thead><tr><th>Type</th><th>What happens</th><th>Typical setting</th></tr></thead><tbody>
+<tr><td>Slip</td><td>Right intention, wrong action. The action was not what was meant.</td><td>Familiar, routine tasks when attention is diverted: wrong valve, wrong button, transposed numbers.</td></tr>
+<tr><td>Lapse</td><td>A step is forgotten or the place in a sequence is lost.</td><td>Interruptions, long sequences, steps with no cue. Common in maintenance and reinstatement.</td></tr>
+<tr><td>Rule-based mistake</td><td>A familiar rule is applied where it does not fit, or a bad rule is applied.</td><td>Situations that look routine but differ in one cue.</td></tr>
+<tr><td>Knowledge-based mistake</td><td>Reasoning from first principles with an incomplete or wrong mental model.</td><td>Novel upsets, unfamiliar plant states.</td></tr>
+<tr><td>Routine violation</td><td>A shortcut that has become normal and is tolerated.</td><td>"We always do it this way"; rules seen as unnecessary.</td></tr>
+<tr><td>Situational violation</td><td>The job, tools, time or design make compliance difficult at that moment.</td><td>Missing equipment, time pressure, poor access.</td></tr>
+<tr><td>Exceptional violation</td><td>Rare, in unusual circumstances, judged to be the lesser risk.</td><td>Emergencies, novel problems.</td></tr></tbody></table></div>
+<h2>Why the type matters</h2>
+<p>Each type responds to different controls. Slips and lapses happen to skilled people doing familiar work, so more training changes little; design, cues and checklists do. Mistakes need better information and diagnosis support. Violations need you to find out why the rule is being broken, and to fix the conditions or the rule.</p>
+<div class="callout"><h4>Active and latent failures</h4><p><b>Active failures</b> are made at the front line and have immediate effect. <b>Latent failures</b> are made by people removed in time and space from the task: designers, planners, managers. Poor design, ineffective training, inadequate supervision, poor communication and unclear roles are latent failures that lie hidden until an event triggers them. HSG48 regards them as at least as dangerous as active failures.</p></div>
+<h2>Human limitations behind errors</h2>
+<ul><li><b>Attention</b> can be sustained for a short time only, and can hold only a few things at once. Repeated tasks become automatic, which is efficient and also how a train driver cancels a warning without registering it.</li>
+<li><b>Perception</b> interprets rather than records: we see what we expect, so redundant cues (colour plus pattern, text plus shape) reduce error.</li>
+<li><b>Memory</b> holds about seven items short-term, and recall depends on context: what is learned in a classroom is harder to recall on the plant.</li>
+<li><b>Reasoning</b> under pressure falls back on assumptions, as at Three Mile Island, where "valve commanded open" was read as "valve is open".</li></ul>
+<h3>Sort it</h3>
+<div class="sortq" data-sort='[["A technician forgets to remove a bypass after a radio call","Lapse"],["A driver takes the unpaved shortcut to the wellsite because the main road adds 40 minutes","Situational violation"],["An operator reads a stuck gauge as zero and opens the receiver door","Rule-based mistake"],["Crews skip the repeat gas test because it always reads zero and supervisors say nothing","Routine violation"],["A panel operator presses Pump B STOP instead of Pump A START","Slip"]]' data-opts='["Slip","Lapse","Rule-based mistake","Routine violation","Situational violation"]'></div>
+<p class="src">Based on HSE HSG48 Chapter 2 (Understanding human failure) and POST note 156, Managing human error.</p>`,
+ex:{title:"Six events from one offshore field",time:"40 minutes",
+scn:`<p><span class="tag">Offshore wellhead and production platforms · Arabian Gulf</span><span class="tag">Six events from the last quarter</span></p>
+<p>The field HSE lead has pulled six events from the reporting system. Each was closed as "human error – retraining completed".</p>
+<ol>
+<li>A production operator on a normally unattended platform opened the pig receiver closure with 3 barg still in the barrel. The single pressure gauge is on the far side of the barrel; he read the gauge on the adjacent launcher.</li>
+<li>During a night-time crew change by boat, a deckhand did not clip his lanyard before stepping onto the boat landing. The sea state was marginal, the boat was late, and the crew had been waiting 90 minutes in the heat.</li>
+<li>A control room operator acknowledged and cleared a high-level alarm on the test separator during an alarm flood of 60 alarms in four minutes, without reading it. The separator overfilled to the flare KO drum.</li>
+<li>An instrument technician calibrated LT-2104, left the bypass in, was called to a radio for another job, and did not return. The bypass was found three days later.</li>
+<li>A mechanical team used a chain block from a handrail to lift a 180 kg pump casing because the certified lifting beam over the pump had been removed during a previous modification and not reinstated.</li>
+<li>A maintenance supervisor, during a well shut-in for a leak, operated a wing valve that the permit prohibited, to stop a hydrocarbon release reaching the hot work area.</li></ol>`,
+qs:[
+{l:"1. Classify each event",h:"Give the failure type for each of the six events (slip, lapse, rule-based or knowledge-based mistake, routine, situational or exceptional violation) with one line of reasoning."},
+{l:"2. Latent failures",h:"For each event name at least one latent failure, made by someone away from the front line, that set up the event."},
+{l:"3. Was retraining the right control?",h:"For which of the six events would retraining have reduced the chance of recurrence? For the others, what would?"},
+{l:"4. One systemic pattern",h:"Looking across the six events, what pattern would the group report to the asset manager, and what single action would address most of it?"}],
+fac:["Expected types: 1 rule-based mistake (gauge reads zero, so safe) with a design latent failure; 2 situational violation (waiting, heat, late boat); 3 slip or rule-based mistake inside an alarm-management latent failure; 4 lapse after interruption; 5 situational violation created by a modification that removed the lifting beam; 6 exceptional violation under escalation.","Retraining has little effect on 1, 3, 4 and 5 and is irrelevant to 6. For 2, the control is the logistics and the waiting conditions, not the clip instruction.","Groups that classify event 6 as a routine violation have missed the circumstances; use it to discuss how exceptional violations show gaps in emergency planning.","The pattern: every closure blamed the individual; the latent failures (gauge location, alarm load, bypass control, MOC not reinstating the beam, logistics) are untouched. A single action: change the incident closure criteria so that no event can close as 'human error' without a named system cause."]}},
+
+{id:"c3",n:"3",t:"Performance shaping factors",obj:"Identify the conditions in the job, the individual and the organisation that make errors more likely, and rank them for a given task.",
+learn:`
+<h2>Two systems in the brain</h2>
+<p>People work with two mental systems. One is conscious, deliberate and slow. The other is automatic: it looks for patterns and connections to previous experience, and it lets skilled people complete familiar work quickly without thinking about each step. Most of the time this is exactly what we want. It is also the mechanism behind slips, and behind seeing what we expect rather than what is there.</p>
+<h2>Performance shaping factors</h2>
+<p>Many conditions make it more likely that a person will fail. The industry has several names for them: performance shaping factors, performance influencing factors, error-producing conditions, error traps. The point is the same: they can be found before an incident, and improved.</p>
+<div class="grid3">
+<div class="card"><h4>The job</h4><p>Complex or badly presented procedures. Poorly designed equipment and interfaces. Unclear labels, signs and alarms. Boring, repetitive steps. Not enough time. Noise, heat, cramped access, poor lighting. Interruptions and multitasking.</p></div>
+<div class="card"><h4>The individual</h4><p>Competence and experience. Fatigue, stress and workload. Health. Attitude to the task and perception of its risk. Whether the person has done this exact task before, or something that only looks similar.</p></div>
+<div class="card"><h4>The organisation</h4><p>Work planning and pressure. Staffing and supervision. Communication, shift patterns and handover. Safety culture. How previous incidents were responded to. Whether procedures match how work is done.</p></div></div>
+<h2>Scenario: the rope on the drain valve</h2>
+<p>A water draw-off valve on an LPG storage vessel was spring-loaded and had to be held open by a lever for 20 to 30 minutes, kneeling in an awkward posture. Operators found a rope held it open just as well, and the practice spread. A newer operator tied the valve open, went to another job, forgot, and went on a break. LPG reached the drain and the gas detectors alarmed. The job, the equipment and the organisation all shaped that event long before the operator picked up the rope.</p>
+<div class="callout"><h4>Gulf-region factors that are easy to leave off the list</h4><ul><li>Ambient temperatures above 45 °C in summer, radiant heat from plant, and the sleep debt that follows nights in a hot camp.</li><li>Rotational schedules with long commutes on the first and last day.</li><li>Fasting during Ramadan: hydration and energy change through the day, and shift patterns often change at short notice.</li><li>Multinational crews with several first languages: instructions, tags and radio messages may be read by someone for whom English is a third language.</li><li>Dust, glare and sandstorms affecting visibility of indicators and labels.</li></ul></div>
+<p class="src">Based on the Energy Institute human performance learning resource (Performance shaping factors; HP in action: storage facility) and HSG48 Box C.</p>`,
+ex:{title:"Night pigging at a desert gathering station",time:"40 minutes",
+scn:`<p><span class="tag">Gas gathering station · desert, 180 km from the main plant</span><span class="tag">August · night shift · Ramadan</span></p>
+<p>Two operators run the 12-hour night shift at a remote gathering station. Tonight they must receive a cleaning pig from a 40 km flowline and launch a second pig. The receiving procedure has 23 steps. Step 14 requires confirming zero pressure on the receiver gauge, which is 2.4 m above grade on the far side of the barrel; the only access is a portable step. The station lighting around the trap area has two of five floodlights out of service, reported four weeks ago. The senior operator is in his 11th consecutive night and is fasting; the junior operator joined the company eight weeks ago and has watched one pig receipt. The control room at the main plant calls every 20 minutes for an update because the flowline is needed for a well test in the morning. Radio reception at the trap area is intermittent. Pig receipt was last done at this station five months ago. The procedure is in English; the junior operator's working language is Hindi and his English is functional.</p>`,
+qs:[
+{l:"1. List the performance shaping factors",h:"Sort them under the job, the individual and the organisation. Aim for at least twelve in total."},
+{l:"2. Rank the top three",h:"Which three factors, together, create the greatest chance of opening the receiver under pressure or of a step being missed? Explain the choice."},
+{l:"3. Controls for tonight and for next month",h:"What should the shift supervisor do before the job starts tonight? What should the organisation change before the next pig run?"},
+{l:"4. What could the two operators do themselves?",h:"Name the practical steps the operators can take with no new equipment and no new procedure."}],
+fac:["Job: 23-step procedure, gauge height and location, portable step, lighting out, intermittent radio, infrequent task, language of the procedure. Individual: 11 nights, fasting, new joiner with one observation, functional English. Organisation: pressure from the control room for the well test, lighting not repaired in four weeks, staffing two people on a task with a safety-critical confirmation step, no simulation or refresher for a five-month gap.","Top three usually: single unreadable gauge plus fatigue plus time pressure. Accept other combinations if argued from the consequence.","Tonight: defer the job to daylight if the well test allows; if not, the supervisor attends, a temporary light is brought, the pressure confirmation is done by two people, and the control room agrees a single update call at a set time. Next month: relocate or duplicate the gauge, repair lighting, bilingual job aid with pictures, a walk-through with the junior operator before the next run, and review the 11-night pattern.","Operators themselves: task preview and briefing before starting, place keeping by ticking each step, pausing when unsure, three-way communication with the control room, and agreeing beforehand that the confirmation of zero pressure is done together."]}},
+
+{id:"c4",n:"4",t:"Work-as-imagined and work-as-done",obj:"Compare how a task is planned with how it is actually done, and decide which gaps to formalise, which to engineer out and which to stop.",
+learn:`
+<h2>Two pictures of the same task</h2>
+<div class="grid2"><div class="card"><h4>Work-as-imagined</h4><p>What engineers, planners, advisers and managers believe the work should be, under ideal conditions. It decides how a process is set up, how people are trained and which controls are put in place.</p></div>
+<div class="card"><h4>Work-as-done</h4><p>What people actually do to get the job done, given the equipment, the usability of the procedure, the time and the resources they really have.</p></div></div>
+<p>The two always differ. If the difference is not acknowledged and supported, people adjust the plan on their own: shortcuts and habits appear, and some of them lead to errors. If the difference is understood, the adjustments can be made safely and the procedure gets better.</p>
+<h2>Scenario: the cooler bundle lift</h2>
+<p>A lift plan assumed that once the flanges were unbolted a cooler bundle could be raised a short distance out of its frame and moved out horizontally. In reality the flanges allowed very little vertical movement and the bundle sat close to the frame. The same thing had happened on other coolers before. The crew improvised. The lift plan was work-as-imagined; the improvisation was work-as-done; and nobody had closed the loop between them.</p>
+<h2>How to find the gap</h2>
+<ul><li>Walk the task through in the field with the people who do it, step by step, before writing or revising a procedure.</li><li>Ask "what do you do when…?" for interruptions, missing tools, weather and time pressure.</li><li>Look for tools, ropes, wedges and notes left near equipment; they mark where the design does not fit the task.</li><li>Treat every "we always do it this way" as information, not as a confession.</li></ul>
+<h2>What to do with each gap</h2>
+<div class="grid3"><div class="card"><h4>Formalise</h4><p>The work-as-done method is safe and better. Put it in the procedure.</p></div><div class="card"><h4>Engineer out</h4><p>The work-as-done method exists because the design makes the correct method painful. Fix the design.</p></div><div class="card"><h4>Stop and support</h4><p>The method is unsafe. Stop it, but only alongside removing the reason it exists.</p></div></div>
+<p class="src">Based on the Energy Institute human performance learning resource (Work-as-imagined vs work-as-done).</p>`,
+ex:{title:"Tank water draw-off at a crude terminal",time:"40 minutes",
+scn:`<p><span class="tag">Crude oil export terminal · Gulf coast</span><span class="tag">Floating-roof tanks · routine operation</span></p>
+<p><b>The procedure says:</b> the operator opens the water draw-off valve at the tank base, observes the flow through the sight glass, keeps a hand on the valve throughout, and closes the valve when oil appears. Expected duration 15 minutes. Two operators are required. PPE: standard plus face shield.</p>
+<p><b>A field observation found:</b> one operator does the job alone because the second is on the loading jetty. The valve is 300 mm above grade behind a bund wall; operators lean over the wall rather than enter the bund, because the bund gate is padlocked and the key is in the control room 600 m away. The sight glass is stained and unreadable, so operators watch the outfall in the oily water sump instead. In summer the job is done at dawn to avoid the heat, which overlaps with the shift handover. Operators wedge the valve open with a wooden block for the first ten minutes "because nothing happens", then return. On three tanks a second valve has been fitted by maintenance at a higher level to make the job easier; it is not on the P&ID. Draw-off takes 25 to 40 minutes, not 15.</p>`,
+qs:[
+{l:"1. Map the gaps",h:"List every difference between work-as-imagined and work-as-done, and state the reason each gap exists."},
+{l:"2. Decide on each gap",h:"For each gap: formalise, engineer out, or stop and support. Give the reasoning."},
+{l:"3. The unofficial valve",h:"What should happen about the second valve fitted outside management of change? Consider both the hazard and the signal it sends."},
+{l:"4. Rewrite the first five steps",h:"Draft the first five steps of a procedure that matches a safe version of work-as-done at this terminal."}],
+fac:["Gaps: one operator not two (staffing); leaning over the bund (locked gate, key distance); sump instead of sight glass (maintenance); timing at dawn (heat, handover overlap); wedging (duration and posture); unofficial valve (design does not suit the task); duration 15 vs 25–40 minutes (planning).","Engineer out: sight glass replacement or a flow indicator, bund gate key at the tank, valve height or extension spindle, a self-closing or dead-man valve, and an automatic interface detector on tanks with frequent draw-off. Formalise: dawn timing, if the handover overlap is managed; the realistic duration. Stop and support: the wedge, but only once the posture and duration are fixed. The second operator: decide what the second person is for; if it is for rescue, a different control may do.","The unofficial valve is a loss-of-containment hazard (not inspected, not on drawings, not in the isolation register) and also evidence that the organisation left the task painful for long enough that people solved it themselves. Both need addressing; punishing the fitter addresses neither.","Good rewrites start with 'collect the bund key from the holder at the tank' and include what feedback to watch and how long to expect."]}},
+
+{id:"c5",n:"5",t:"Critical tasks and the Task Improvement Process",obj:"Identify the steps in a task where an error leads to a significant consequence, and apply the Task Improvement Process to build in defences.",
+learn:`
+<h2>Which tasks matter most</h2>
+<p>Not every task needs the same attention. The tasks that matter are those where a misperformed step can lead directly to a significant event: isolation and reinstatement, line-ups, draining and venting, lifting over live plant, overriding a safeguard, starting up after maintenance. Working with the people who do these tasks is the simplest way to find where errors could occur.</p>
+<h2>The Task Improvement Process</h2>
+<div class="grid2">
+<div class="card"><h4>1 Identify the task</h4><p>Select a task where consequences are significant. Walk it through in the field with the people who do it. Break it into steps as it is actually done.</p></div>
+<div class="card"><h4>2 Find the error potential</h4><p>For each step ask: what could go wrong here, how likely is it, what would the consequence be, and what makes the error more likely (the performance shaping factors)?</p></div>
+<div class="card"><h4>3 The right access</h4><p>Bring in the people who can change the design, the procedure, the tools and the planning. Decide the defences: prevent the error, make it detectable, make it recoverable.</p></div>
+<div class="card"><h4>4 The output</h4><p>An improved task: revised steps, job aids, engineering changes, a clear statement of the critical steps, and verification points at those steps.</p></div></div>
+<h2>Error-likely steps</h2>
+<p>Experience across the industry points to steps with these features:</p>
+<ul><li>Confirmation of a state that cannot be seen directly (pressure, isolation, charge).</li><li>Similar items side by side.</li><li>Reinstatement after an interruption or a shift change.</li><li>A step whose omission has no immediate visible effect.</li><li>A step done from memory because the procedure is not at hand.</li><li>A step that depends on a message from someone else.</li></ul>
+<div class="callout or"><h4>Defences in order of strength</h4><p>Remove the step or the hazard. Make the error physically impossible (interlock, incompatible fittings). Make it visible and recoverable (local indication, independent check with time to act). Then procedures, job aids, training and supervision, which support the stronger defences rather than replace them.</p></div>
+<p class="src">Based on the Energy Institute human performance learning resource (Critical tasks; Task Improvement Process) and the EI guidance on human factors safety critical task analysis.</p>`,
+ex:{title:"Lining up a shut-in sour gas well",time:"45 minutes",
+scn:`<p><span class="tag">Sour gas field · onshore · 8% H₂S</span><span class="tag">Two operators, one supervisor by radio</span></p>
+<p>Well 14 has been shut in for three weeks for a downhole survey. The task is to return it to production through the test separator. The site procedure, as written, reads:</p>
+<ol><li>Confirm with the control room that the test separator is lined up to receive Well 14.</li><li>Confirm the wellhead ESD valve is closed and the hydraulic panel shows "armed".</li><li>Remove the blind from the flowline spool downstream of the choke (blind fitted for the survey).</li><li>Fit the spool and torque the flange bolts.</li><li>Pressure test the spool to 50 barg with nitrogen; hold 10 minutes.</li><li>Depressurise the spool to flare.</li><li>Open the flowline isolation valve at the manifold.</li><li>Open the wing valve, then the master valve, then crack the choke to 10%.</li><li>Request the control room to reset the ESD and open the ESD valve.</li><li>Increase the choke in 10% steps to the target, confirming separator pressure each step.</li></ol>
+<p>Observations: the manifold has eight identical flowline isolation valves in a row, tagged on the top of the handwheels where the tags have faded. The spool for Well 14 is the same size as the spool for Well 12, which is also blinded for a workover. The nitrogen test at step 5 is usually done by a contractor crew who arrive at a different time. The choke indicator reads in percentage opening and sticks at about 30%. Personal H₂S monitors are worn; the fixed detector near the manifold has been in bypass for two weeks waiting for a sensor.</p>`,
+qs:[
+{l:"1. Mark the critical steps",h:"Which steps, if performed wrongly, lead directly to a loss of containment or an H₂S exposure? Say what the consequence would be for each."},
+{l:"2. Error potential at each critical step",h:"For each critical step, state the most likely error, the performance shaping factors behind it, and whether the error would be detected before the consequence."},
+{l:"3. Defences",h:"Propose defences for each critical step, strongest first. Mark which are engineering, which are procedural and which are verification."},
+{l:"4. The improved procedure",h:"Rewrite steps 3, 7 and 8 as they would appear in the improved procedure, including hold points, who verifies, and what feedback the operator must see before moving on."}],
+fac:["Critical steps: 3 (wrong spool or wrong well), 4 (bolting), 5–6 (test and depressurise before line-up), 7 (wrong manifold valve among eight), 8 (sequence and choke), 9 (ESD reset while the line-up is wrong), 10 (choke sticking leads to overshoot).","Expect groups to find: identical valves with faded tags; two blinded spools of the same size; the contractor timing which may lead to skipping or assuming the test; the sticking choke indicator; and the fixed H₂S detector in bypass as a removed defence that nobody on the crew controls.","Defences: unique tagging and physical differentiation at the manifold (engineering); a spool identification check with the well number stamped on the spool and a photograph in the job pack (verification); a hold point before step 7 signed by the supervisor on site, not by radio (verification); a requirement that the fixed detector is restored before the task or a portable fixed-point detector is placed (engineering/administrative); replacement of the choke indicator (engineering).","Good rewrites for step 7 name the valve tag, require reading the tag aloud with the second operator, and state the expected feedback (flowline pressure gauge begins to move)."]}},
+
+{id:"c6",n:"6",t:"Human factors in design",obj:"Apply user-centred design principles to equipment and workplaces so that the right action is the easy action.",
+learn:`
+<h2>When design makes errors likely</h2>
+<p>Hard-to-use design was one of the factors behind the rope on the LPG drain valve: the task was designed on the assumption that an operator would kneel and hold a lever for twenty minutes. A designer who had thought about how uncomfortable that was might have foreseen the rope.</p>
+<h2>User-centred design</h2>
+<p>User-centred design involves the people who will operate and maintain the equipment, and tests the design against real tasks: normal, degraded, abnormal and emergency. It aims at usability, meaning the user can achieve the task, not only utility, meaning the equipment can function.</p>
+<div class="grid2">
+<div class="card"><h4>Simplicity</h4><p>Fewer controls and displays, each with one obvious purpose. Information shown where the decision is made.</p></div>
+<div class="card"><h4>Expectations</h4><p>Controls move the way people expect: clockwise closes, up is on, left means left. Layouts match the plant: four pumps in a row on the panel in the same order as in the field.</p></div>
+<div class="card"><h4>Consistency</h4><p>The same colour, tag convention, alarm sound and symbol mean the same thing on every unit and every vendor package.</p></div>
+<div class="card"><h4>Access</h4><p>Valves, gauges, sample points and strainers within reach and sight from a safe standing position, with room to apply force, in the weather and lighting that the site actually has.</p></div></div>
+<h2>Usability testing</h2>
+<p>Give real users real tasks on the design, including maintenance staff, observe the time and the errors, and change the design. For a control panel this can be done on a cardboard mock-up; for a 3D model it is done by walking the model with the operators' sightlines.</p>
+<div class="callout"><h4>Questions to ask at a design review</h4><ul><li>Can the operator read the indication from where the control is operated?</li><li>If two things look alike, what tells them apart in the dark and in the dust?</li><li>What is the operator supposed to do if this reading is wrong, and how would they know?</li><li>What would a maintenance technician have to do to isolate, test and reinstate this item?</li><li>Which task here will be done once a year, and what will the person have forgotten by then?</li></ul></div>
+<p class="src">Based on the Energy Institute human performance learning resource (HF in design; HF in design – practical).</p>`,
+ex:{title:"A new chemical injection package for a brownfield platform",time:"40 minutes",
+scn:`<p><span class="tag">Offshore production platform · brownfield modification</span><span class="tag">60% design review</span></p>
+<p>A vendor corrosion inhibitor injection skid is to be installed on the cellar deck. The design review package shows:</p>
+<ul><li>Two duplex strainers needing weekly cleaning; the changeover handwheels are 2.6 m above deck with no platform.</li><li>Four identical discharge ball valves side by side, tagged V-104A to D by the vendor; the platform convention uses well numbers.</li><li>Discharge pressure gauges 0–400 barg (normal 180, relief at 210) facing the skid wall, readable only by leaning into a 450 mm gap next to a cable tray.</li><li>A bulk tank filled from tote tanks by a transfer pump; the sight glass is on the far side from the fill point; no high-level alarm; "operator to monitor level".</li><li>A local panel with START (green) and STOP (red) buttons for four pumps in a 2 × 4 grid, with Pump A START directly above Pump B STOP; labels in English only. A quarter of the crew has limited English.</li><li>Fabrication starts in three weeks. The project proposes to deal with human factors "through the operating procedure and training".</li></ul>`,
+qs:[
+{l:"1. Apply the four principles",h:"For each of the five design features, say which principle it breaks (simplicity, expectations, consistency, access) and what error it invites."},
+{l:"2. Redesign",h:"Describe the group's redesign of the panel and the gauge arrangement. A sketch described in words is fine."},
+{l:"3. Usability test plan",h:"Design a 30-minute usability test the vendor could run before shipping: who takes part, which tasks, what is measured."},
+{l:"4. The note to the project manager",h:"In no more than 120 words, explain why procedures and training will not fix these features and which two changes must happen before fabrication."}],
+fac:["Strainers: access. Valves: consistency and expectations. Gauges: access and simplicity. Tank fill: simplicity and feedback (no indication where the action happens). Panel: expectations and consistency, plus language.","A good panel redesign groups each pump's START and STOP together under the pump's well number, shrouds START, uses bilingual labels, and orders the pumps as the lines are laid out on the skid. Gauges rotated to face the access side, with the normal band and relief point marked.","Usability test: two operators and one technician, tasks of strainer changeover, pump changeover, tank filling to a target level and reading each gauge, measured by time, errors and questions asked. Run on the skid at the vendor's works before FAT.","The two pre-fabrication changes are permanent access for the strainers and a high-level alarm with a pump trip on the tank; the rest are cheap vendor changes before FAT."]}},
+
+{id:"c7",n:"7",t:"Workload, stress and fatigue",obj:"Recognise the signs and risk factors of excessive workload, stress and fatigue, and build practical controls into shift and turnaround planning.",
+learn:`
+<h2>Workload</h2>
+<p>Workload is the demand a task places on a person relative to their capacity at the time. <b>Physical workload</b> is force, posture, heat and duration. <b>Mental workload</b> is the amount of information to track and the number of decisions to make. Both too much and too little workload cause errors: an overloaded operator misses alarms; an underloaded one loses attention during a long, quiet night.</p>
+<h2>Stress</h2>
+<p>Stress is the reaction when demands exceed what a person believes they can cope with. Signs include irritability, difficulty concentrating, shortcuts, withdrawal and more frequent minor errors. Sources at work include time pressure, conflicting instructions, unclear roles and a fear of blame; sources outside work count just as much.</p>
+<h2>Fatigue</h2>
+<p>Fatigue is the decline in mental and physical performance that follows prolonged exertion, poor sleep or disrupted body clock. It builds as <b>sleep debt</b>: each short night adds to the deficit, and a single long sleep does not clear it. Effects include slower reactions, narrowed attention, poorer memory, worse judgement of risk and, eventually, micro-sleeps. People are poor judges of their own fatigue.</p>
+<div class="callout or"><h4>Three risk factors that matter most</h4><ul><li>Time since waking and time on task.</li><li>Time of day: the body clock dips between 02:00 and 06:00 and again mid-afternoon.</li><li>Sleep in the previous 24 and 48 hours, including quality.</li></ul></div>
+<h2>Managing it</h2>
+<ul><li>Shift design: limit consecutive nights, give at least two full nights of recovery after a block of nights, rotate forward, cap 12-hour shifts and avoid overtime at the end of them.</li><li>Assign safety-critical and monotonous tasks away from the circadian low where possible; if not, add a second person or a check.</li><li>Heat: schedule heavy physical work for early morning, enforce rest and hydration, treat heat as part of workload, not separately.</li><li>Commuting: long drives at the end of a night shift are part of the fatigue picture, especially at the end of a rotation.</li><li>Make it normal to report fatigue, and make the response practical: a different task, a rest, a lift home.</li></ul>
+<p class="src">Based on the Energy Institute human performance learning resource (Workload, stress and fatigue) and HSG48 Chapter 4 (Fatigue and shift work).</p>`,
+ex:{title:"Turnaround planning at a refinery",time:"40 minutes",
+scn:`<p><span class="tag">Refinery · Gulf coast</span><span class="tag">28-day turnaround · June and July</span></p>
+<p>The turnaround runs 24 hours a day on two 12-hour shifts, 06:00 to 18:00 and 18:00 to 06:00, for 28 consecutive days. Most of the 1,400 contractor workforce live in a camp 45 minutes away by bus; the company's own operators live in the city, up to 90 minutes' drive each way. Afternoon temperatures reach 47 °C with high humidity. The critical path includes a 30-hour continuous operation to pull and reinstall the catalyst in the reactor, requiring confined-space entry under breathing air, scheduled to start at 20:00 on day 19. The operations team that performs isolations and reinstatements is 22 people covering both shifts with no spare. Previous turnarounds recorded most of their injuries and procedural errors in the last ten days. The turnaround manager has asked for "a fatigue management plan that does not extend the schedule".</p>`,
+qs:[
+{l:"1. Where are the fatigue peaks?",h:"Identify when and for whom fatigue will be highest. Use time of day, time on task, days into the turnaround, heat and commuting."},
+{l:"2. The catalyst operation",h:"Assess the 30-hour catalyst operation starting at 20:00 on day 19. What would the group change, and what would it keep?"},
+{l:"3. The plan",h:"Write the group's fatigue management plan in ten points that the turnaround manager could accept without extending the schedule."},
+{l:"4. Leading indicators",h:"Name four things the HSE team could measure daily during the turnaround to see fatigue rising before errors appear."}],
+fac:["Peaks: night shift between 02:00 and 06:00; days 18 to 28 for everyone; the 22 operations staff who have no spare and will accumulate overtime at isolations; city-based operators on the drive home after nights; and the afternoon heat for outdoor contractors.","The catalyst operation starts at the worst time for a 30-hour task; a strong answer re-times it to start at 06:00, splits it into crews with a planned handover at a safe hold point, limits breathing-air entries by rota, and puts a dedicated supervisor on nights.","Plan points that avoid extending the schedule: a fatigue rota with a maximum of four consecutive nights for safety-critical roles, a spare operations crew drawn from another unit, buses timed so night shift gets to bed quickly, a no-overtime rule after night shift, a rest room with cooling, task re-timing to the circadian high, a buddy check on isolations after 03:00, and a daily fatigue stand-down review.","Leading indicators: self-reported sleep hours, number of overtime hours by individual, errors found at isolation verification, near-miss reports, heat stress cases, and bus departure delays."]}},
+
+{id:"c8",n:"8",t:"Situation awareness and non-technical skills",obj:"Describe how situation awareness is lost, and use the practical tools that keep tasks reliably on track.",
+learn:`
+<h2>What situation awareness is</h2>
+<p>Situation awareness is knowing what is going on around you: gathering the information, understanding what it means for the risk, and anticipating what will happen next. It is lost through distraction, fixation on one problem, assumption, fatigue, and alarms or messages that arrive faster than they can be processed.</p>
+<h2>Non-technical skills</h2>
+<p>Crew resource management, borrowed from aviation, trains the skills that sit alongside technical competence: situation awareness, decision-making, communication, teamwork, leadership, and managing stress and fatigue. It is most useful where several people work together on a task where errors have high consequences.</p>
+<h2>Tools that support reliable execution</h2>
+<div class="grid2">
+<div class="card"><h4>Task preview and briefing</h4><p>What are the consequences of an error in this task? What is in place to reduce it? Is anything else needed?</p></div>
+<div class="card"><h4>Pause when unsure</h4><p>Stop the activity. Put the job in a safe condition. Tell the supervisor. Get help.</p></div>
+<div class="card"><h4>Place keeping</h4><p>Mark the procedure as each step is completed. Use checklists to keep your place through interruptions.</p></div>
+<div class="card"><h4>Self-checking: STAR</h4><p><b>Stop.</b> <b>Think</b>: engage the mind before the hands. <b>Act.</b> <b>Review</b>: did it do what was expected?</p></div>
+<div class="card"><h4>Three-way communication</h4><p>Sender gives the message. Receiver repeats it back. Sender confirms it was understood, or repeats.</p></div>
+<div class="card"><h4>Checks and verification</h4><p>Peer checks of critical steps. Supervisor checks of critical work. A signature reflects a real review and a commitment, not a formality.</p></div></div>
+<div class="callout"><h4>Good practice around SA</h4><ul><li>Good briefings that state what is critical and what "abnormal" would look like today.</li><li>People rested and fit for duty.</li><li>Distractions minimised during critical steps: radios, phones and visitors managed.</li><li>Skills practised in drills and low-fidelity exercises, not only in incidents.</li></ul></div>
+<p class="src">Based on the Energy Institute human performance learning resource (Situation awareness; Non-technical skills) and the EI/CIEHF tools to support situation awareness.</p>`,
+ex:{title:"A night upset in an LNG control room",time:"40 minutes",
+scn:`<p><span class="tag">LNG plant · control room · 03:20</span><span class="tag">Two panel operators, one shift supervisor</span></p>
+<p>At 03:20 a compressor anti-surge valve on the mixed refrigerant loop begins to hunt. Within four minutes the panel operator for the liquefaction unit has 70 alarms, of which eleven are repeats from the same valve. The operator is diagnosing the hunting with the vendor's trend screens open on two of his four monitors. At 03:26 the utilities operator at the next desk, who is covering for a colleague on leave and is running two consoles, receives a low-low level pre-alarm on the boil-off gas compressor suction drum and silences it, intending to return to it. At 03:28 the shift supervisor comes in from the field to ask the liquefaction operator about a permit for the morning. At 03:31 the liquefaction operator asks the field operator by radio to "close the bypass"; the field operator, standing at the anti-surge recycle line, closes a different bypass and reports "done". At 03:34 the boil-off compressor trips on low-low suction level, the flare lights, and the plant goes to a controlled shutdown. The investigation later finds that the hunting valve had a failing positioner that had been reported twice in the previous month.</p>`,
+qs:[
+{l:"1. Where was situation awareness lost?",h:"Walk through the timeline. At each point, say who lost awareness, of what, and through which mechanism (distraction, fixation, assumption, overload, communication)."},
+{l:"2. Apply the tools",h:"For each loss, name the situation awareness tool that would have caught it and describe exactly how it would be used in that moment."},
+{l:"3. Alarm and staffing conditions",h:"What organisational conditions set this up, and what should be changed about alarm management and console cover?"},
+{l:"4. The next night",h:"The positioner cannot be replaced for a week. Write a one-page night-shift brief, in bullet form, for the crew who come on at 18:00."}],
+fac:["Losses: liquefaction operator fixated on the trend screens (fixation), alarm flood of 70 in four minutes (overload), utilities operator silencing a pre-alarm intending to return (lapse under workload from covering two consoles), the supervisor's permit question at the wrong moment (distraction), and the radio message 'close the bypass' with no tag and no repeat-back (communication, assumption).","Tools: three-way communication with the valve tag would have caught the wrong bypass; pause when unsure for the field operator who had two bypasses in front of him; a briefing at shift start that named the known positioner fault and what hunting would look like; place keeping for the silenced pre-alarm; a supervisor rule not to interrupt a panel operator during an upset.","Organisation: alarm rationalisation (repeat alarms from one valve should be shelved automatically with a reminder), a rule on console cover during upsets, and the two unactioned positioner reports, which turn a maintenance backlog into an operations risk.","A good brief names the valve, the symptom, the agreed response, who calls whom, the tag numbers of the bypasses, and that the supervisor stays out of the control room during an upset unless asked."]}},
+
+{id:"c9",n:"9",t:"Procedures and safety-critical communication",obj:"Write procedure steps that people can follow in the field, and design shift handover and verbal communication so that critical information is not lost.",
+learn:`
+<h2>Job aids</h2>
+<p>Procedures are one job aid among several: checklists, decision flowcharts, diagrams and photographs all support reliable performance. Procedures are used where a task is higher risk, more complex, and where reliable execution is itself a risk barrier. A badly written procedure increases the likelihood of error; a good one reflects how the work is actually done.</p>
+<h2>What goes wrong in procedures</h2>
+<ul><li>No guidance on how long steps should take, so people cannot tell whether something is wrong.</li><li>Task hazards not stated at the start of the task.</li><li>Several actions in one step.</li><li>Vague quantities: "open the valve for a short time" rather than "open the valve for 10 seconds".</li><li>Negatives and passive voice: "the barrier should be placed" rather than "the PA places the barrier before any work starts".</li><li>Steps written from the office rather than walked through in the field; equipment referred to by names that are not on the labels.</li></ul>
+<div class="callout"><h4>Writing tips from four practitioners</h4><ul><li>Base the procedure on how the task is performed in practice; identify the pressures that lead to shortcuts and address them directly.</li><li>Short sentences, precise information, pictures aligned to the steps, and a review process that keeps it current.</li><li>Plain language, WHO/WHAT/WHEN, no unfamiliar abbreviations, and a clear direction for the next step: "if pressure exceeds 8.3 barg, call the driller".</li><li>Chronological flow, hazards at each step, the feedback to monitor, and a check that the items named are labelled that way in the real world.</li></ul></div>
+<h2>Safety-critical communication</h2>
+<p>In the arc flash scenario, the incoming technician was told the plant was "isolated and inspected" and assumed that covered everything. Communication fails between individuals, through mishearing on radio, and between shifts. Practical defences:</p>
+<ul><li><b>Three-way communication</b> for any instruction that moves a valve, a switch or a permit: message, repeat-back, confirmation.</li><li><b>Shift handover</b> that is face to face, uses a written log plus a conversation, and captures plant status, ongoing work, abnormal conditions, isolations and overrides, and what the incoming shift must do first.</li><li><b>Communication of hazards</b> to contractors and visiting teams in terms they will understand, checked by asking them to describe the hazard back.</li></ul>
+<p class="src">Based on the Energy Institute human performance learning resource (Just following procedure; Safety critical communication) and HSG48 Chapter 3 (Writing procedures) and Chapter 4 (Effective shift communication).</p>`,
+ex:{title:"A procedure and a handover that both failed",time:"45 minutes",
+scn:`<p><span class="tag">Gas-oil separation plant · onshore</span><span class="tag">Strainer changeover and shift handover</span></p>
+<p><b>Procedure excerpt as issued (steps 6 to 9 of 14):</b></p>
+<ol start="6"><li>The standby strainer should be checked and if satisfactory the changeover valve should be moved to the standby position and the pressure monitored and the duty strainer isolated and depressurised and drained.</li><li>Do not open the strainer cover unless pressure has been released.</li><li>Clean the element and reassemble as necessary.</li><li>Return to service.</li></ol>
+<p><b>What happened:</b> the day operator moved the changeover at 17:40 but was called away before draining the duty strainer. He told the night operator at handover, in the corridor, "strainer swap done on P-301, just needs finishing". The night operator opened the cover of the un-drained strainer at 19:10 and was sprayed with hot crude. The strainer cover has four swing bolts and no pressure-warning device. The drain valve is behind the strainer at ankle height. Handover at this plant is a verbal exchange in the corridor; the logbook is filled in afterwards.</p>`,
+qs:[
+{l:"1. Rewrite steps 6 to 9",h:"Produce the group's rewritten steps, with one action per step, hazards and feedback at the step where they matter, expected durations, and the exact items named as they are labelled."},
+{l:"2. Design the handover",h:"Specify the handover: where it happens, who attends, what is written, what is spoken, and what the incoming operator must say back. Draft the written template headings."},
+{l:"3. The three-way exchange",h:"Script the three-way exchange that should have taken place at 17:40 between the day and night operators about P-301."},
+{l:"4. Beyond procedure and handover",h:"What two engineering changes would remove the chance of this injury regardless of the quality of the procedure or the handover?"}],
+fac:["Rewritten steps should split step 6 into at least five actions, name the valve tags, state the expected pressure reading before opening, and state the time to depressurise. Watch for groups that keep the negative in step 7; the positive form is 'confirm PG-301B reads 0 barg before releasing any swing bolt'.","Handover: at the panel or the equipment, not the corridor; written log completed before the conversation; a fixed order (plant status, work in progress, abnormal conditions, isolations, overrides, first actions); the incoming operator repeats the open items. Template headings should include 'Work started but not finished' as its own line.","Three-way script: 'P-301 duty strainer changed over to B. Strainer A is still pressurised and not drained. Do not open A until you have drained it and PG-301A reads zero.' Repeat back. Confirm.","Engineering: a pressure-warning or interlocked cover (cannot open under pressure) and relocation of the drain valve to a standing position. These would have made the error harmless."]}},
+
+{id:"c10",n:"10",t:"Culture, leadership and learning from incidents",obj:"Describe how leaders shape the conditions for human performance, and investigate an event in a way that finds the system causes and improves the system.",
+learn:`
+<h2>Safety culture</h2>
+<p>Safety culture is the product of values, attitudes and behaviours that decide how seriously an organisation treats safety when nobody is watching. It is built from the top: what leaders attend to, what they reward, how they respond to bad news and to errors. It is read by the workforce from the condition of the plant, the state of procedures, and what happens to the last person who reported a problem.</p>
+<h2>What leaders do that changes conditions</h2>
+<ul><li>Set the tone: ask about risks and conditions, not only about numbers.</li><li>Respond to errors by asking why it made sense, and fix the conditions found.</li><li>Define the behaviours expected, by asking the workforce what gets in their way.</li><li>Walk the plant with the people who do the work and look for the ropes, wedges and workarounds.</li><li>Close out what is reported. Unrepaired lighting and ignored positioner reports are messages about priorities.</li></ul>
+<h2>Just culture</h2>
+<p>A just culture separates errors, which are managed by changing conditions, from reckless or repeated deliberate deviations, which are managed through accountability. The test is not the outcome but the intention and the conditions: would another competent person in the same situation have been likely to do the same thing?</p>
+<h2>Human factors in incident investigation</h2>
+<p>An investigation that stops at "operator failed to…" has described the event and explained nothing. The investigation process should:</p>
+<ol><li>Establish what happened as a timeline, from the inside perspective of each person involved.</li><li>Identify the human failures and classify them.</li><li>For each one, ask why it made sense at the time and list the performance shaping factors.</li><li>Trace those factors to the latent conditions in design, planning, procedures, staffing and management.</li><li>Recommend changes to the system in order of strength, and check later that the changes were made and worked.</li></ol>
+<div class="callout or"><h4>The question that opens an investigation</h4><p>Not "who did this?" but "what did this person see, know and believe at that moment, and what would it take for the next person to see something different?"</p></div>
+<p class="src">Based on the Energy Institute human performance learning resource (Safety culture; Human factors in incident investigation) and HSG48 Chapter 4 (Health and safety culture) and Chapter 5.</p>`,
+ex:{title:"The H₂S release nobody reported for a day",time:"45 minutes",
+scn:`<p><span class="tag">Sour gas plant · amine unit</span><span class="tag">Near miss · reported 26 hours later</span></p>
+<p>At 22:15 a contractor instrument technician, replacing a transmitter on the amine regenerator overhead line, loosened the wrong flange and released H₂S-containing gas for about 20 seconds before his personal monitor alarmed and he withdrew. The isolation certificate listed the correct flange by tag; the two flanges are 400 mm apart, both with the same bolt pattern, and the tag plate on the correct one had been painted over during a recent coating campaign. The technician was on his first night at this plant after transferring from another site with a different tagging convention. His supervisor told him to "log it as a minor leak and finish the job after the line has been purged". The contractor company's bonus for the quarter depends on recordable incident rates. The event was reported to the plant the next evening by a company operator who had seen the gas detector record. At the first investigation meeting the plant manager asked the contractor to "remove the technician from site".</p>`,
+qs:[
+{l:"1. Timeline and inside perspective",h:"Build the timeline. For the technician, the supervisor and the plant manager, state what each saw, knew and believed at the moment they acted."},
+{l:"2. Failures and conditions",h:"Classify each human failure. For each, list the performance shaping factors and trace them to the latent conditions."},
+{l:"3. Just culture decisions",h:"Apply the just culture test to the technician and to the supervisor separately. What is the appropriate response to each, and why?"},
+{l:"4. Recommendations and leadership response",h:"Write five recommendations in order of strength, and draft what the plant manager should say to the contractor workforce at the next toolbox talk."}],
+fac:["Technician: rule-based mistake (the flange that looked right), with conditions of identical flanges, painted-over tag, first night, different convention, no walk-down with the issuing authority. Supervisor: a deliberate under-reporting decision, a violation shaped by the bonus scheme and the fear of a reaction like the one the plant manager showed. Plant manager: a blame response that confirms the supervisor's fear and guarantees the next event will not be reported.","Just culture: the technician's action would likely have been repeated by another competent person in his position, so the response is to fix the conditions and coach, not remove. The supervisor's suppression is a different category; it needs accountability, and it also needs the incentive that produced it to be removed. Groups should notice that the bonus scheme is the plant's own latent condition.","Recommendations in order: a physical point-of-work identification for every isolation (tag-out at the flange, witnessed walk-down), restoration of tags after coating as a hold point in the coating procedure, a site induction that covers tagging conventions for transferring staff, removal of recordable-rate bonuses in favour of reporting and close-out measures, and a visible change in how the plant manager responds to reported events.","The toolbox talk should thank the operator who reported, state that the technician stays, explain what will change on the plant, and say plainly that under-reporting is the behaviour the plant will act on."]}}
+];
+
+/* ---------- PREVIEW EDITION ---------- */
+const KEEP=new Set(["c1","c3","c8"]);
+const TEASER=CH.filter(c=>!KEEP.has(c.id)).map(c=>({n:c.n,t:c.t}));
+CH.splice(0,CH.length,...CH.filter(c=>KEEP.has(c.id)));
+CH.forEach(c=>{delete c.ex.fac;});
+const INTRO={title:"How this workshop works",body:`
+<p class="lede">A facilitated human performance course for operations, maintenance, engineering and HSE teams in the energy sector. The full course has ten chapters, each with a learning section and a group exercise set on a Gulf-region facility. This preview opens three of them.</p>
+<div class="grid3" style="margin-top:22px">
+<div class="card"><h4>1 Learn together</h4><p>The instructor presents the chapter, or groups read it on their own devices. Sorting and reveal interactions check understanding as you go.</p></div>
+<div class="card"><h4>2 Work the exercise in your group</h4><p>Each chapter ends with a scenario and four structured questions. The group discusses, agrees and types its answers.</p></div>
+<div class="card"><h4>3 Submit to the instructor</h4><p>In the full course, submissions go to the instructor only. The application does not grade them. The instructor reviews every group's work and leads the debrief, explaining where each group can improve. In this preview, use <b>Copy for instructor</b> to see the submission format.</p></div></div>
+<div class="callout" style="margin-top:22px"><h4>Sources</h4><p>The content follows the Energy Institute human performance learning resource, HSE HSG48 <i>Reducing error and influencing behaviour</i>, the EI/CIEHF tools to support situation awareness, and POST note 156 on managing human error. Exercises are composite scenarios; no real company or event is described.</p></div>
+<h2 style="margin-top:28px">Suggested timetable</h2>
+<div class="tbl"><table><thead><tr><th>Block</th><th>Chapters</th><th>Time</th></tr></thead><tbody>
+<tr><td>Day 1 morning</td><td>1 What human performance is · 2 Understanding human failure · 3 Performance shaping factors</td><td>3 h 45 min</td></tr>
+<tr><td>Day 1 afternoon</td><td>4 Work-as-imagined and work-as-done · 5 Critical tasks and TIP</td><td>3 h</td></tr>
+<tr><td>Day 2 morning</td><td>6 HF in design · 7 Workload, stress and fatigue · 8 Situation awareness</td><td>3 h 45 min</td></tr>
+<tr><td>Day 2 afternoon</td><td>9 Procedures and communication · 10 Culture, leadership and learning · course debrief</td><td>3 h</td></tr></tbody></table></div>
+<p class="note">Each chapter is about 25 minutes of teaching, 35 to 45 minutes of group work and 15 minutes of debrief. A one-day version uses chapters 1, 2, 3, 5, 8 and 10.</p>`};
+
+/* =====================================================================
+   STATE
+   ===================================================================== */
+const KEY="hp-workshop-preview-v1";
+let L={pos:"intro",tab:"learn",group:null,members:"",draft:{},status:{},sort:{},insView:false,insSel:null};
+try{const r=localStorage.getItem(KEY);if(r)L=Object.assign(L,JSON.parse(r));}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(L));}catch(e){}};
+let CAP={db:null,user:null,uid:null,canEdit:false,ready:false};
+let SESSION=null;           // sessions/current
+let SUBS=new Map();         // instructor: uid -> doc
+let REVIEW=new Map();       // instructor: uid -> review doc
+let mySub=null;             // trainee: own submissions doc
+let unsubs=[];
+
+const $=s=>document.querySelector(s);
+const el=(t,a={},h)=>{const e=document.createElement(t);for(const k in a){if(k==="class")e.className=a[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),a[k]);else e.setAttribute(k,a[k]);}if(h!==undefined)e.innerHTML=h;return e;};
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=iso=>{try{return new Date(iso).toLocaleString(undefined,{dateStyle:"medium",timeStyle:"short"});}catch(e){return iso;}};
+function toast(m){const t=el("div",{class:"toast",role:"status"},esc(m));document.body.appendChild(t);setTimeout(()=>t.remove(),3200);}
+
+/* =====================================================================
+   CAPABILITIES
+   ===================================================================== */
+async function boot(){
+  render();
+  try{
+    CAP.db=null;CAP.user=null;
+  }catch(e){}
+  CAP.ready=true;
+  if(CAP.db){
+    unsubs.push(CAP.db.doc("sessions/current").onSnapshot(s=>{SESSION=s.exists?s.data():null;render();},()=>{}));
+    if(CAP.uid){
+      unsubs.push(CAP.db.doc("submissions/"+CAP.uid).onSnapshot(s=>{mySub=s.exists?s.data():null;if(mySub){for(const k in (mySub.entries||{})){L.status[k]=mySub.entries[k].status||"submitted";}save();}render();},()=>{}));
+    }
+    if(CAP.canEdit){
+      unsubs.push(CAP.db.collection("submissions").onSnapshot(q=>{SUBS=new Map(q.docs.map(d=>[d.id,d.data()]));render();},()=>{}));
+      unsubs.push(CAP.db.collection("review").onSnapshot(q=>{REVIEW=new Map(q.docs.map(d=>[d.id,d.data()]));render();},()=>{}));
+    }
+  }
+  render();
+}
+function groups(){return (SESSION&&SESSION.groups)||[];}
+function statusOf(id){const e=mySub&&mySub.entries&&mySub.entries[id];if(e)return REVIEW.get(CAP.uid)?.[id]?"discussed":"submitted";if(L.status[id]==="submitted")return "submitted";const d=L.draft[id];return d&&Object.values(d).some(v=>v&&v.trim())?"draft":"";}
+
+/* =====================================================================
+   RENDER
+   ===================================================================== */
+function render(){
+  const ins=CAP.canEdit&&L.insView;
+  $("#insBtn").hidden=true;L.insView=false;$("#insBtn").classList.toggle("on",ins);$("#insBtn").textContent=ins?"Back to course":"Instructor";
+  const chip=$("#modeChip");
+  if(!CAP.ready){chip.textContent="Connecting…";chip.className="chip";}
+  else if(ins){chip.textContent="Instructor view";chip.className="chip or";}
+  else if(L.group){chip.textContent=L.group;chip.className="chip gd";}
+  else{chip.textContent="3 of 10 chapters open";chip.className="chip";}
+  renderRail();renderPanel();
+  const m=$("#main");m.innerHTML="";
+  if(ins)renderInstructor(m);
+  else if(L.pos==="intro")renderIntro(m);
+  else if(L.pos==="about")renderAbout(m);
+  else renderChapter(m,CH.find(c=>c.id===L.pos)||CH[0]);
+}
+function go(pos,tab){L.pos=pos;if(tab)L.tab=tab;save();render();window.scrollTo({top:0});$("#rail").classList.remove("open");$("#menuBtn").setAttribute("aria-expanded","false");$("#main").focus({preventScroll:true});}
+function renderRail(){
+  const r=$("#rail");r.innerHTML="";
+  const ins=CAP.canEdit&&L.insView;
+  const b=el("button",{class:"ri",onclick:()=>{L.insView=false;go("intro");}},`<span class="n">00</span><span>How this workshop works</span><span></span>`);
+  if(!ins&&L.pos==="intro")b.setAttribute("aria-current","page");r.appendChild(b);
+  r.appendChild(el("h4",{},"Chapters"));
+  CH.forEach(c=>{const st=statusOf(c.id);const x=el("button",{class:"ri",onclick:()=>{L.insView=false;go(c.id,"learn");}},`<span class="n">${c.n.padStart(2,"0")}</span><span>${esc(c.t)}</span><span class="st ${st==="submitted"?"sub":st==="discussed"?"disc":st==="draft"?"draft":""}" title="${st||"not started"}"></span>`);
+    if(!ins&&L.pos===c.id)x.setAttribute("aria-current","page");r.appendChild(x);});
+  r.appendChild(el("h4",{},"In the full course"));
+  TEASER.forEach(t=>{r.appendChild(el("button",{class:"ri",disabled:"",style:"font-style:italic;opacity:.65"},`<span class="n">${t.n.padStart(2,"0")}</span><span>${esc(t.t)}</span><span class="n">full</span>`));});
+  const ab=el("button",{class:"ri",onclick:()=>{L.insView=false;go("about");}},`<span class="n">★</span><span>Work with H²S Consultants</span><span></span>`);if(L.pos==="about")ab.setAttribute("aria-current","page");r.appendChild(ab);
+  r.appendChild(el("div",{class:"legend"},`<span><i style="border-style:dashed;border-color:var(--orange)"></i>Draft in progress</span><span><i style="background:var(--good);border-color:var(--good)"></i>Submitted to instructor</span><span><i style="background:var(--orange);border-color:var(--orange)"></i>Discussed in debrief</span>`));
+}
+function renderPanel(){
+  const p=$("#panel");p.innerHTML="";
+  if(CAP.canEdit&&L.insView){p.appendChild(el("div",{class:"pbox"},`<h4>Instructor</h4><div class="big">${SESSION?esc(SESSION.name):"No session yet"}</div><p class="sm">${SESSION?`${groups().length} groups · ${SUBS.size} device${SUBS.size===1?"":"s"} connected`:"Create a session to open the exercises to groups."}</p>`));return;}
+  const g=el("div",{class:"pbox"});
+  if(!CAP.db){
+    g.innerHTML=`<h4>Your group</h4><div class="field"><label for="gname">Group name</label><input id="gname" placeholder="e.g. Group B" value="${esc(L.group||"")}"></div><div class="field"><label for="gmem">Members</label><input id="gmem" placeholder="Names, comma-separated" value="${esc(L.members)}"></div><p class="sm">In the full course your group is registered to a live session and submissions reach the instructor directly. In this preview, <b>Copy for instructor</b> shows the submission format.</p>`;
+    g.querySelector("#gname").onchange=e=>{L.group=e.target.value.trim()||null;save();render();};g.querySelector("#gmem").onchange=e=>{L.members=e.target.value;save();};
+  }else if(!SESSION){
+    g.innerHTML=`<h4>Your group</h4><p class="sm">The instructor has not opened a session yet. Exercises can be drafted now and submitted once the session is open.</p>`;
+  }else{
+    const opts=groups().map(x=>`<option value="${esc(x.name)}"${L.group===x.name?" selected":""}>${esc(x.name)}</option>`).join("");
+    g.innerHTML=`<h4>Session</h4><div class="big">${esc(SESSION.name)}</div><div class="field" style="margin-top:10px"><label for="gsel">Your group</label><select id="gsel"><option value="">Select…</option>${opts}</select></div><div class="field"><label for="gmem">Members on this device</label><input id="gmem" placeholder="Names, comma-separated" value="${esc(L.members)}"></div><p class="sm">One device per group is enough. Submissions are visible to the instructor only.</p>`;
+    g.querySelector("#gsel").onchange=e=>{L.group=e.target.value||null;save();pushProfile();render();};g.querySelector("#gmem").onchange=e=>{L.members=e.target.value;save();pushProfile();};
+  }
+  p.appendChild(g);
+  const n=CH.filter(c=>["submitted","discussed"].includes(statusOf(c.id))).length;
+  p.appendChild(el("div",{class:"pbox"},`<h4>Progress</h4><div class="big">${n} of ${CH.length} exercises submitted</div><p class="sm">Drafts are saved on this device as you type.</p>`));
+}
+async function pushProfile(){if(!CAP.db||!CAP.uid||!L.group)return;try{const ref=CAP.db.doc("submissions/"+CAP.uid);const s=await ref.get();const base=s.exists?s.data():{entries:{}};await ref.set(Object.assign({},base,{group:L.group,members:L.members,updatedAt:new Date().toISOString()}));}catch(e){}}
+
+function renderAbout(m){
+  m.innerHTML=`<div class="eyebrow">About this course</div><h1>Bring the full workshop to your site</h1>
+  <div class="prose"><p class="lede">The full Human Performance Workshop has ten chapters, ten Gulf-region group exercises, a live session mode in which every group submits to the instructor's dashboard, and facilitator notes for each exercise.</p>
+  <div class="grid2" style="margin-top:22px"><div class="card"><h4>What the full course adds</h4><p>Chapters on human failure types, work-as-imagined and work-as-done, critical tasks and the Task Improvement Process, human factors in design, workload and fatigue, procedures and communication, and culture, leadership and learning from incidents.</p></div>
+  <div class="card"><h4>How it is delivered</h4><p>Two days on site or online, in groups of four to six. The instructor presents each chapter, groups work the exercise, submit it, and the instructor leads the debrief from every group's own answers.</p></div>
+  <div class="card"><h4>Tailored to your operation</h4><p>Exercises can be rewritten around your own facilities, procedures and incident learnings, so the discussion is about your plant rather than a composite one.</p></div>
+  <div class="card"><h4>Also available</h4><p>Human Factors Engineering in Projects and Design, an interactive narrated course; human factors design reviews; incident investigation systems; and the Risk2Safe process safety tool suite.</p></div></div>
+  <div class="callout or" style="margin-top:22px"><h4>H²S Consultants · Risk2Safe</h4><p>Human factors, process safety and HSE consulting for oil and gas, grounded in Energy Institute, IOGP and HSE guidance and 30 years of operator-side experience in the Gulf.</p><p style="margin:0"><b>info@risk2safe.com</b> · +91 90031 46969 · <a href="https://risk2safe.com" target="_blank" rel="noopener">risk2safe.com</a> · <a href="https://app.risk2safe.com" target="_blank" rel="noopener">app.risk2safe.com</a></p></div></div>`;
+}
+function renderIntro(m){
+  m.innerHTML=`<div class="eyebrow">Human performance · facilitated course</div><h1>${INTRO.title}</h1><div class="hero">${ART.cover}</div><div class="prose">${INTRO.body}</div>`;
+  m.appendChild(el("div",{style:"margin-top:20px"})).appendChild(el("button",{class:"btn",onclick:()=>go("c1","learn")},"Start Chapter 1 →"));
+}
+function renderChapter(m,c){
+  const st=statusOf(c.id);
+  m.innerHTML=`<div class="eyebrow">Chapter ${c.n} of ${CH.length}</div><h1>${esc(c.t)}</h1>${ART[c.id]?`<div class="hero">${ART[c.id]}</div>`:""}<div class="obj"><b>Learning objective</b><p>${esc(c.obj)}</p></div>`;
+  const tabs=el("div",{class:"tabs",role:"tablist"});
+  [["learn","Learn"],["ex","Group exercise"]].forEach(([k,lbl])=>{const b=el("button",{class:"tab",role:"tab","aria-selected":L.tab===k?"true":"false",onclick:()=>{L.tab=k;save();render();}},lbl+(k==="ex"&&st?`<span class="cnt">${st}</span>`:""));tabs.appendChild(b);});
+  m.appendChild(tabs);
+  if(L.tab==="learn"){
+    const d=el("div",{class:"prose"},c.learn);m.appendChild(d);wireLearn(d,c.id);
+    const row=el("div",{class:"status",style:"margin-top:24px;border:1px solid var(--line);border-radius:10px"});
+    row.append(el("button",{class:"btn",onclick:()=>{L.tab="ex";save();render();window.scrollTo({top:0});}},"Go to the group exercise →"));
+    const i=CH.indexOf(c);if(i>0)row.append(el("button",{class:"btn gh",onclick:()=>go(CH[i-1].id,"learn")},"← Previous chapter"));
+    m.appendChild(row);
+  }else renderExercise(m,c);
+}
+function wireLearn(root,cid){
+  root.querySelectorAll(".rev>button").forEach(b=>b.onclick=()=>b.parentElement.classList.toggle("open"));
+  root.querySelectorAll(".sortq").forEach((box,bi)=>{
+    const items=JSON.parse(box.dataset.sort),opts=JSON.parse(box.dataset.opts);const key=cid+"-"+bi;L.sort[key]=L.sort[key]||{};
+    items.forEach(([txt,ans],i)=>{const it=el("div",{class:"it"});it.appendChild(el("span",{},esc(txt)));const o=el("div",{class:"opts"});
+      opts.forEach(op=>{const b=el("button",{type:"button"},op);const paint=()=>{const v=L.sort[key][i];b.classList.toggle("sel",v===op);it.classList.toggle("ok",v!==undefined&&v===ans);it.classList.toggle("no",v!==undefined&&v!==ans);};b.onclick=()=>{L.sort[key][i]=op;save();o.querySelectorAll("button").forEach(x=>x.dispatchEvent(new Event("paint")));};b.addEventListener("paint",paint);paint();o.appendChild(b);});
+      it.appendChild(o);box.appendChild(it);});
+    box.appendChild(el("p",{class:"fb"},"Choose an answer for each line. Green means it matches the source classification; red means look again."));
+  });
+}
+function renderExercise(m,c){
+  const E=c.ex,st=statusOf(c.id),locked=st==="submitted"||st==="discussed";
+  const d=L.draft[c.id]||(L.draft[c.id]={});
+  const box=el("section",{class:"ex"});
+  box.innerHTML=`<div class="ex-h"><span class="k">Group exercise ${c.n}</span><h3>${esc(E.title)}</h3><span class="time">${esc(E.time)} · discuss, agree, then type</span></div>`;
+  const b=el("div",{class:"ex-b"});
+  b.appendChild(el("div",{class:"scn"},`<h4>Scenario</h4>${ART[c.id]?`<div class="hero sm">${ART[c.id]}</div>`:""}${E.scn}<div style="clear:both"></div>`));
+  const sub=mySub&&mySub.entries&&mySub.entries[c.id];
+  E.qs.forEach((q,i)=>{const w=el("div",{class:"q"});w.appendChild(el("label",{for:`${c.id}-q${i}`},esc(q.l)));w.appendChild(el("p",{class:"hint"},esc(q.h)));
+    if(locked){w.appendChild(el("div",{class:"ans"},esc((sub&&sub.answers&&sub.answers[i])||d[i]||"(no answer)")));}
+    else{const ta=el("textarea",{id:`${c.id}-q${i}`});ta.value=d[i]||"";ta.oninput=()=>{d[i]=ta.value;save();renderRail();};w.appendChild(ta);}
+    b.appendChild(w);});
+  box.appendChild(b);
+  const row=el("div",{class:"status"});
+  if(locked){
+    row.appendChild(el("span",{class:"pill "+(st==="discussed"?"disc":"sub")},st==="discussed"?"Discussed with the instructor":"Submitted to the instructor"));
+    if(sub&&sub.submittedAt)row.appendChild(el("span",{class:"note"},`Sent ${fmt(sub.submittedAt)} by ${esc(sub.group||L.group||"your group")}`));
+    row.appendChild(el("button",{class:"btn gh",onclick:()=>copySub(c)},"Copy submission"));
+    if(st!=="discussed")row.appendChild(el("button",{class:"btn gh",onclick:()=>{L.status[c.id]="";save();render();}},"Reopen and edit"));
+  }else{
+    const filled=E.qs.filter((q,i)=>(d[i]||"").trim().length>=20).length;
+    const canSend=filled===E.qs.length&&!!L.group;
+    const sb=el("button",{class:"btn",onclick:()=>submit(c)},"Submit to instructor");sb.disabled=!canSend;
+    row.appendChild(sb);
+    row.appendChild(el("button",{class:"btn gh",onclick:()=>copySub(c)},"Copy for instructor"));
+    row.appendChild(el("span",{class:"note"},!L.group?"Select your group in the panel first.":filled<E.qs.length?`${filled} of ${E.qs.length} answers written.`:(CAP.db&&SESSION?"Ready to submit.":"No live session: use Copy for instructor.")));
+  }
+  box.appendChild(row);
+  m.appendChild(box);
+  const i=CH.indexOf(c);const nav=el("div",{class:"row",style:"display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"});
+  nav.appendChild(el("button",{class:"btn gh",onclick:()=>{L.tab="learn";save();render();window.scrollTo({top:0});}},"← Back to the lesson"));
+  if(i<CH.length-1)nav.appendChild(el("button",{class:"btn sec",onclick:()=>go(CH[i+1].id,"learn")},`Next: Chapter ${CH[i+1].n} →`));
+  else nav.appendChild(el("button",{class:"btn sec",onclick:()=>go("about")},"Bring the full workshop to your site →"));
+  m.appendChild(nav);
+}
+function subText(c){const d=L.draft[c.id]||{};return `HUMAN PERFORMANCE WORKSHOP · Exercise ${c.n}: ${c.ex.title}\nGroup: ${L.group||"-"}\nMembers: ${L.members||"-"}\nTime: ${new Date().toLocaleString()}\n\n`+c.ex.qs.map((q,i)=>`${q.l}\n${(d[i]||"").trim()||"(no answer)"}\n`).join("\n");}
+async function copySub(c){const t=subText(c);try{await navigator.clipboard.writeText(t);toast("Copied. Paste it into a message to the instructor.");}catch(e){const ta=el("textarea",{style:"position:fixed;left:-9999px"});ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast("Copied.");}catch(e2){toast("Copy failed. Select the text manually.");}ta.remove();}}
+async function submit(c){
+  const d=L.draft[c.id]||{};const entry={answers:c.ex.qs.map((q,i)=>(d[i]||"").trim()),submittedAt:new Date().toISOString(),group:L.group,status:"submitted"};
+  if(CAP.db&&CAP.uid&&SESSION){
+    try{const ref=CAP.db.doc("submissions/"+CAP.uid);const s=await ref.get();const base=s.exists?s.data():{};const entries=Object.assign({},base.entries||{});entries[c.id]=entry;
+      await ref.set({group:L.group,members:L.members,updatedAt:entry.submittedAt,entries});L.status[c.id]="submitted";save();toast("Submitted. Only the instructor can see it.");render();return;}
+    catch(e){toast("Could not reach the session. Use Copy for instructor.");}
+  }else{L.status[c.id]="submitted";save();toast("In the full course this would now reach the instructor's dashboard.");render();await copySub(c);}
+}
+
+/* =====================================================================
+   INSTRUCTOR
+   ===================================================================== */
+function renderInstructor(m){
+  m.className="ins";
+  m.innerHTML=`<div class="eyebrow">Instructor only</div><h1>Session and submissions</h1>`;
+  if(!CAP.db){m.appendChild(el("div",{class:"warn"},"This page is not connected to a shared session store, so groups will send their work by copied text. Facilitator notes for every exercise are still available below."));}
+  else{
+    const s=el("div",{class:"subview"});
+    if(!SESSION){s.innerHTML=`<h3 style="font-size:18px">Open a session</h3><p class="note">Give the session a name and the number of groups. Trainees then pick their group on their own device.</p><div class="grid2"><div class="field"><label for="sname">Session name</label><input id="sname" placeholder="e.g. Site A · Human performance · 12 Nov"></div><div class="field"><label for="sn">Number of groups</label><input id="sn" type="number" min="1" max="12" value="4"></div></div>`;
+      s.appendChild(el("button",{class:"btn",onclick:async()=>{const name=s.querySelector("#sname").value.trim()||"Human performance workshop";const n=Math.max(1,Math.min(12,+s.querySelector("#sn").value||4));const gs=Array.from({length:n},(_,i)=>({id:"g"+(i+1),name:"Group "+String.fromCharCode(65+i)}));try{await CAP.db.doc("sessions/current").set({name,groups:gs,createdAt:new Date().toISOString(),open:true});toast("Session opened.");}catch(e){toast("Could not open the session.");}}},"Open session"));}
+    else{
+      s.innerHTML=`<h3 style="font-size:18px">${esc(SESSION.name)}</h3><p class="note">Opened ${fmt(SESSION.createdAt)} · ${groups().length} groups</p>`;
+      const gl=el("div",{class:"grp-list"});groups().forEach(g=>{const devs=[...SUBS.values()].filter(x=>x.group===g.name);gl.appendChild(el("div",{class:"grp"},`<span><b>${esc(g.name)}</b><span class="sm"> · ${devs.length?devs.map(x=>esc(x.members||"members not entered")).join(" / "):"no device yet"}</span></span><span class="sm">${devs.reduce((a,x)=>a+Object.keys(x.entries||{}).length,0)} submissions</span>`));});
+      s.appendChild(gl);
+      const row=el("div",{class:"status",style:"margin:14px -20px -18px;border-radius:0 0 12px 12px"});
+      row.appendChild(el("button",{class:"btn gh",onclick:async()=>{const gs=groups().concat([{id:"g"+(groups().length+1),name:"Group "+String.fromCharCode(65+groups().length)}]);try{await CAP.db.doc("sessions/current").update({groups:gs});}catch(e){toast("Could not add a group.");}}},"Add a group"));
+      const cl=el("button",{class:"btn gh"},"Close session");cl.onclick=()=>{row.innerHTML="";row.append(el("span",{class:"note"},"Close the session? Group submissions stay stored; trainees can no longer submit."),el("button",{class:"btn",style:"background:var(--bad)",onclick:async()=>{try{await CAP.db.doc("sessions/current").delete();toast("Session closed.");}catch(e){toast("Could not close.");}}},"Close"),el("button",{class:"btn gh",onclick:render},"Cancel"));};
+      row.appendChild(cl);s.appendChild(row);
+    }
+    m.appendChild(s);
+    /* matrix */
+    const mx=el("div",{class:"matrix"});
+    const rows=[...SUBS.entries()].sort((a,b)=>(a[1].group||"").localeCompare(b[1].group||""));
+    mx.innerHTML=`<table><thead><tr><th>Group / device</th>${CH.map(c=>`<th title="${esc(c.t)}">${c.n}</th>`).join("")}</tr></thead><tbody>${rows.length?"":`<tr><td colspan="${CH.length+1}" style="color:var(--muted)">No submissions yet.</td></tr>`}</tbody></table>`;
+    const tb=mx.querySelector("tbody");
+    rows.forEach(([uid,doc])=>{const tr=el("tr");tr.appendChild(el("td",{},`<b>${esc(doc.group||"No group")}</b><br><span class="note">${esc(doc.members||"")}</span>`));
+      CH.forEach(c=>{const e=doc.entries&&doc.entries[c.id];const td=el("td");const disc=REVIEW.get(uid)?.[c.id];
+        if(e){const b=el("button",{class:"cell "+(disc?"disc":"sub"),title:(disc?"Discussed · ":"Submitted · ")+fmt(e.submittedAt),onclick:()=>{L.insSel={uid,cid:c.id};save();render();}},disc?"✓":"●");td.appendChild(b);}
+        else td.appendChild(el("span",{class:"cell"},"–"));tr.appendChild(td);});
+      tb.appendChild(tr);});
+    m.appendChild(mx);
+    m.appendChild(el("p",{class:"note",style:"margin-top:8px"},"● submitted, awaiting debrief · ✓ marked as discussed. Select a cell to read the group's answers next to the facilitator notes."));
+    if(L.insSel&&SUBS.has(L.insSel.uid)){const doc=SUBS.get(L.insSel.uid),c=CH.find(x=>x.id===L.insSel.cid),e=doc.entries&&doc.entries[c.id];
+      if(e){const v=el("div",{class:"subview"});v.innerHTML=`<h3 style="font-size:20px">${esc(doc.group||"Group")} · Exercise ${c.n}: ${esc(c.ex.title)}</h3><div class="meta"><span>${esc(doc.members||"")}</span><span>Submitted ${fmt(e.submittedAt)}</span></div>`;
+        c.ex.qs.forEach((q,i)=>{const w=el("div",{class:"q"});w.appendChild(el("label",{},esc(q.l)));w.appendChild(el("div",{class:"ans"},esc(e.answers[i]||"(no answer)")));v.appendChild(w);});
+        v.appendChild(facNotes(c));
+        const disc=REVIEW.get(L.insSel.uid)?.[c.id];
+        const row=el("div",{class:"status",style:"margin:16px -20px -18px;border-radius:0 0 12px 12px"});
+        row.appendChild(el("button",{class:disc?"btn gh":"btn",onclick:async()=>{try{const ref=CAP.db.doc("review/"+L.insSel.uid);const s=await ref.get();const b=s.exists?s.data():{};b[c.id]=disc?null:{at:new Date().toISOString()};if(!b[c.id])delete b[c.id];await ref.set(b);}catch(err){toast("Could not update.");}}},disc?"Unmark discussed":"Mark as discussed"));
+        row.appendChild(el("span",{class:"note"},"Marking tells the group's device that the debrief for this exercise has taken place."));
+        row.appendChild(el("button",{class:"btn gh",style:"margin-left:auto",onclick:()=>{L.insSel=null;save();render();}},"Close"));
+        v.appendChild(row);m.appendChild(v);}}
+  }
+  /* facilitator notes for all chapters */
+  const all=el("div",{style:"margin-top:30px"});all.appendChild(el("h2",{style:"font-size:22px;margin-bottom:6px"},"Facilitator notes by exercise"));
+  all.appendChild(el("p",{class:"note"},"Expected answers, common gaps and debrief prompts. These notes are in the page for the instructor's use; they are not shown in the trainee view."));
+  CH.forEach(c=>{const r=el("div",{class:"rev"});r.innerHTML=`<button type="button">Exercise ${c.n}: ${esc(c.ex.title)}</button>`;const b=el("div",{class:"body"});b.appendChild(facNotes(c));r.appendChild(b);r.querySelector("button").onclick=()=>r.classList.toggle("open");all.appendChild(r);});
+  m.appendChild(all);
+}
+function facNotes(c){return el("div",{class:"fac"},`<h4>Facilitator notes</h4><p style="margin:0">Provided with the full course.</p>`);}
+
+/* =====================================================================
+   WIRING
+   ===================================================================== */
+$("#insBtn").onclick=()=>{L.insView=!L.insView;save();render();window.scrollTo({top:0});};
+$("#menuBtn").onclick=()=>{const r=$("#rail");const o=!r.classList.contains("open");r.classList.toggle("open",o);$("#menuBtn").setAttribute("aria-expanded",o?"true":"false");};
+document.addEventListener("click",e=>{const r=$("#rail");if(r.classList.contains("open")&&!r.contains(e.target)&&e.target.id!=="menuBtn"){r.classList.remove("open");$("#menuBtn").setAttribute("aria-expanded","false");}});
+(function(){const st=document.createElement('style');st.textContent=ART_CSS;document.head.appendChild(st);})();
+boot();
+</script>
+
+</body>
+</html>
