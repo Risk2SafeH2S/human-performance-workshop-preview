@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Human Performance Pathway Preview</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Preview of the five-level Human Performance Pathway training pack for oil and gas teams by H²S Consultants. One sample module is open at each level.">
+<meta property="og:title" content="Human Performance Pathway – Preview">
+<meta property="og:description" content="Five levels from workforce awareness to master practitioner. Try one complete module at each level.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+[hidden]{display:none!important}
+/* Layout: facilitated-workshop console. Chapter rail on the left, teaching column in the middle, group/instructor panel on the right. Navy and safety-orange, matching the H²S Consultants course family. */
+:root{
+  --bg:#EEF1F5; --surface:#FFFFFF; --sunk:#E2E7EE; --ink:#172033; --muted:#53617A; --line:#C9D1DD;
+  --navy:#13233F; --navy-2:#2A3B5C; --navy-ink:#FFFFFF; --navy-soft:#DCE4F0;
+  --orange:#E3701F; --orange-soft:#FBE7D6; --orange-ink:#8A3F07;
+  --good:#1F7A4D; --good-soft:#DCEFE4; --bad:#B4302A; --bad-soft:#F6DEDB; --amber:#A86300; --amber-soft:#FBEACB;
+  --f-head:"Archivo","Arial Black",Arial,sans-serif; --f-body:"Source Sans 3","Segoe UI",Arial,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1621; --surface:#172030; --sunk:#1F2A3C; --ink:#E6EBF2; --muted:#9AA8BC; --line:#2F3C52;
+  --navy:#0C1526; --navy-2:#1C2B47; --navy-ink:#FFFFFF; --navy-soft:#223354;
+  --orange:#F08A3C; --orange-soft:#3B2614; --orange-ink:#F7C49A;
+  --good:#5CC48F; --good-soft:#163424; --bad:#F08C84; --bad-soft:#3C1B19; --amber:#E9A445; --amber-soft:#3A2A12; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1621; --surface:#172030; --sunk:#1F2A3C; --ink:#E6EBF2; --muted:#9AA8BC; --line:#2F3C52;
+  --navy:#0C1526; --navy-2:#1C2B47; --navy-ink:#FFFFFF; --navy-soft:#223354;
+  --orange:#F08A3C; --orange-soft:#3B2614; --orange-ink:#F7C49A;
+  --good:#5CC48F; --good-soft:#163424; --bad:#F08C84; --bad-soft:#3C1B19; --amber:#E9A445; --amber-soft:#3A2A12; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.55;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--navy)}
+button{font:inherit;cursor:pointer;color:inherit}
+button:disabled{cursor:not-allowed;opacity:.5}
+:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+main:focus,main:focus-visible{outline:none}
+textarea,input,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 10px;width:100%}
+textarea{min-height:110px;resize:vertical;line-height:1.5}
+textarea:focus,input:focus,select:focus{outline:2px solid var(--navy-2);outline-offset:0}
+h1,h2,h3,h4{font-family:var(--f-head);margin:0;text-wrap:balance;line-height:1.15}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* top bar */
+.top{background:var(--navy);color:var(--navy-ink);position:sticky;top:env(safe-area-inset-top,0px);z-index:30}
+.top .wrap{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.brand{font-family:var(--f-head);font-weight:900;font-size:15px;letter-spacing:.04em;white-space:nowrap}
+.brand small{display:block;font-family:var(--f-body);font-weight:400;font-size:11.5px;letter-spacing:.08em;color:#C9D3E3;text-transform:uppercase}
+.top .sp{flex:1}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:5px 10px;border-radius:999px;background:var(--navy-2);color:#fff;white-space:nowrap}
+.chip.or{background:var(--orange)}
+.chip.gd{background:var(--good)}
+.tbtn{background:transparent;border:1px solid #4A5E82;color:#fff;border-radius:6px;padding:6px 10px;font-size:13.5px;font-family:var(--f-head);font-weight:700}
+.tbtn:hover{background:var(--navy-2)}
+.tbtn.on{background:var(--orange);border-color:var(--orange)}
+.menubtn{display:none}
+
+/* shell */
+.shell{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;padding-block:24px 80px;max-width:1280px;margin:0 auto}
+.shell.wide{grid-template-columns:260px minmax(0,1fr) 300px}
+aside.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 70px);align-self:start;max-height:calc(100vh - 90px);overflow:auto;font-family:var(--f-head)}
+.rail h4{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+.ri{display:grid;grid-template-columns:26px 1fr auto;gap:8px;align-items:center;width:100%;text-align:left;background:none;border:0;color:var(--ink);padding:7px 8px;border-radius:7px;font-size:14px;font-weight:500;line-height:1.25}
+.ri:hover{background:var(--sunk)}
+.ri[aria-current="page"]{background:var(--navy);color:#fff}
+.ri .n{font-family:var(--f-mono);font-size:11.5px;color:var(--muted)}
+.ri[aria-current="page"] .n{color:#C9D3E3}
+.ri .st{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--line)}
+.ri .st.sub{background:var(--good);border-color:var(--good)}
+.ri .st.disc{background:var(--orange);border-color:var(--orange)}
+.ri .st.draft{border-color:var(--orange);border-style:dashed}
+.legend{font-family:var(--f-body);font-size:12px;color:var(--muted);display:grid;gap:3px;margin-top:12px;padding:0 8px}
+.legend span{display:flex;gap:6px;align-items:center}
+.legend i{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--line);display:inline-block}
+
+main{min-width:0}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-ink)}
+h1{font-size:clamp(28px,3.6vw,40px);font-weight:900;margin-top:4px}
+.lede{font-size:18.5px;color:var(--muted);max-width:66ch;margin-top:10px}
+.obj{margin-top:20px;border-left:4px solid var(--orange);background:var(--surface);padding:12px 16px;border-radius:0 8px 8px 0;max-width:72ch}
+.obj b{font-family:var(--f-head);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-ink);display:block;margin-bottom:2px}
+.obj p{margin:0}
+.tabs{display:flex;gap:6px;margin-top:26px;border-bottom:2px solid var(--line);flex-wrap:wrap}
+.tab{background:none;border:0;padding:10px 14px;font-family:var(--f-head);font-weight:700;font-size:14px;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--orange)}
+.tab .cnt{font-family:var(--f-mono);font-size:11px;background:var(--sunk);padding:1px 6px;border-radius:999px;margin-left:6px;color:var(--ink)}
+.prose{max-width:70ch}
+.prose h2{font-size:24px;font-weight:800;margin:34px 0 10px}
+.prose h3{font-size:18px;font-weight:700;margin:22px 0 6px}
+.prose p{margin:0 0 12px}
+.prose ul,.prose ol{margin:0 0 12px;padding-left:22px}
+.prose li{margin-bottom:5px}
+.prose .src{font-size:13.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:22px}
+.callout{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:14px 0}
+.callout.or{border-color:var(--orange);background:var(--orange-soft)}
+.callout h4{font-size:15px;font-weight:800;margin-bottom:4px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.card h4{font-size:15.5px;font-weight:800;margin-bottom:4px;color:var(--navy-2)}
+.card p{margin:0;font-size:15px;color:var(--muted)}
+.tbl{overflow-x:auto;margin:10px 0 16px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:15px;background:var(--surface)}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-head);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+td:first-child{font-weight:600}
+/* reveal interactions */
+.rev{border:1px solid var(--line);border-radius:10px;background:var(--surface);margin:10px 0;overflow:hidden}
+.rev>button{width:100%;text-align:left;background:none;border:0;padding:12px 16px;font-family:var(--f-head);font-weight:700;font-size:15.5px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.rev>button::after{content:"+";font-size:20px;color:var(--orange);flex:none}
+.rev.open>button::after{content:"−"}
+.rev .body{display:none;padding:0 16px 14px;color:var(--ink)}
+.rev.open .body{display:block}
+.rev .body p{margin:0 0 8px}
+.sortq{display:grid;gap:8px;margin:12px 0}
+.sortq .it{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 12px}
+.sortq .it.ok{border-color:var(--good);background:var(--good-soft)}
+.sortq .it.no{border-color:var(--bad);background:var(--bad-soft)}
+.sortq .opts{display:flex;gap:5px}
+.sortq .opts button{border:1px solid var(--line);background:var(--sunk);border-radius:6px;padding:4px 9px;font-size:13px;font-weight:600}
+.sortq .opts button.sel{background:var(--navy);color:#fff;border-color:var(--navy)}
+.fb{font-size:14.5px;color:var(--muted);margin-top:6px}
+
+/* exercise */
+.ex{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:18px}
+.ex-h{background:var(--navy);color:#fff;padding:16px 20px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline}
+.ex-h .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#F2A15F}
+.ex-h h3{font-size:19px;font-weight:800;color:#fff}
+.ex-h .time{margin-left:auto;font-size:13px;color:#C9D3E3;white-space:nowrap}
+.ex-b{padding:18px 20px}
+.scn{background:var(--sunk);border-radius:10px;padding:14px 16px;margin-bottom:18px}
+.scn h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.scn p{margin:0 0 8px}
+.scn ul{margin:0 0 6px;padding-left:20px}
+.scn .tag{display:inline-block;font-family:var(--f-mono);font-size:11px;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:1px 6px;margin:0 4px 6px 0;color:var(--muted)}
+.q{margin-bottom:18px}
+.q label{display:block;font-family:var(--f-head);font-weight:700;font-size:15.5px;margin-bottom:3px}
+.q .hint{font-size:14px;color:var(--muted);margin:0 0 6px}
+.q .ans{white-space:pre-wrap;background:var(--sunk);border-radius:6px;padding:10px 12px;font-size:15px}
+.status{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:14px 20px;border-top:1px solid var(--line);background:var(--sunk)}
+.btn{background:var(--orange);color:#fff;border:0;border-radius:7px;padding:10px 18px;font-family:var(--f-head);font-weight:800;font-size:14.5px}
+.btn:hover:not(:disabled){filter:brightness(1.07)}
+.btn.sec{background:var(--navy-2)}
+.btn.gh{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.note{font-size:14px;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px}
+.pill.sub{background:var(--good-soft);color:var(--good)}
+.pill.draft{background:var(--orange-soft);color:var(--orange-ink)}
+.pill.disc{background:var(--navy-soft);color:var(--navy-2)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.3);max-width:calc(100% - 32px)}
+
+/* side panel */
+aside.panel{position:sticky;top:calc(env(safe-area-inset-top,0px) + 70px);align-self:start;max-height:calc(100vh - 90px);overflow:auto;display:grid;gap:12px}
+.pbox{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.pbox h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.pbox .big{font-family:var(--f-head);font-weight:800;font-size:18px}
+.pbox .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.pbox .sm{font-size:13.5px;color:var(--muted)}
+.pbox ul{margin:6px 0 0;padding-left:18px;font-size:14px}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:12.5px;font-weight:700;color:var(--muted);margin-bottom:3px}
+
+/* instructor */
+.ins h1{font-size:30px}
+.matrix{overflow-x:auto;margin-top:14px}
+.matrix table{min-width:640px}
+.matrix td,.matrix th{text-align:center}
+.matrix td:first-child,.matrix th:first-child{text-align:left}
+.cell{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:7px;border:1px solid var(--line);background:var(--sunk);font-size:12px;font-weight:800}
+.cell.sub{background:var(--good);color:#fff;border-color:var(--good)}
+.cell.disc{background:var(--navy-2);color:#fff;border-color:var(--navy-2)}
+.cell.draft{border-color:var(--orange);color:var(--orange-ink);border-style:dashed}
+button.cell{cursor:pointer}
+.subview{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-top:16px}
+.subview .meta{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px;color:var(--muted);margin-bottom:12px}
+.fac{background:var(--amber-soft);border:1px solid var(--amber);border-radius:10px;padding:14px 16px;margin-top:16px}
+.fac h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+.fac ul{margin:0;padding-left:20px;font-size:15px}
+.fac li{margin-bottom:4px}
+.grp-list{display:grid;gap:8px;margin-top:8px}
+.grp{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:var(--sunk);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.grp b{font-family:var(--f-head)}
+.grp .sm{color:var(--muted);font-size:13px}
+.warn{background:var(--amber-soft);border-left:4px solid var(--amber);padding:10px 14px;border-radius:0 8px 8px 0;font-size:14.5px;margin:12px 0}
+
+@media (max-width:1100px){.shell.wide{grid-template-columns:240px minmax(0,1fr)}aside.panel{position:static;max-height:none;grid-column:1/-1;grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){
+  .shell,.shell.wide{grid-template-columns:1fr;gap:16px}
+  aside.rail{position:fixed;z-index:35;top:env(safe-area-inset-top,0px);bottom:0;left:0;width:min(300px,86vw);background:var(--surface);padding:14px;padding-left:max(14px,env(safe-area-inset-left,0px));max-height:none;transform:translateX(-105%);transition:transform .25s;box-shadow:8px 0 30px rgba(0,0,0,.3)}
+  aside.rail.open{transform:none}
+  .menubtn{display:inline-block}
+  aside.panel{grid-template-columns:1fr}
+  .grid2,.grid3{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ---------- pathway additions ---------- */
+.lvl-c1{--lv:#4F7CAC}.lvl-c2{--lv:#1F7A4D}.lvl-c3{--lv:#A86300}.lvl-c4{--lv:#8A3F9A}.lvl-c5{--lv:#E3701F}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .lvl-c1{--lv:#7EA6D6}:root:not([data-theme="light"]) .lvl-c2{--lv:#5CC48F}:root:not([data-theme="light"]) .lvl-c3{--lv:#E9A445}:root:not([data-theme="light"]) .lvl-c4{--lv:#C58BD3}:root:not([data-theme="light"]) .lvl-c5{--lv:#F08A3C}}
+:root[data-theme="dark"] .lvl-c1{--lv:#7EA6D6}:root[data-theme="dark"] .lvl-c2{--lv:#5CC48F}:root[data-theme="dark"] .lvl-c3{--lv:#E9A445}:root[data-theme="dark"] .lvl-c4{--lv:#C58BD3}:root[data-theme="dark"] .lvl-c5{--lv:#F08A3C}
+.rl-lvl{display:grid;grid-template-columns:34px 1fr auto;gap:8px;align-items:center;width:100%;text-align:left;background:none;border:0;color:var(--ink);padding:8px;border-radius:7px;font-family:var(--f-head);font-weight:700;font-size:14px;line-height:1.2}
+.rl-lvl:hover{background:var(--sunk)}
+.rl-lvl[aria-current="page"]{background:var(--navy);color:#fff}
+.rl-lvl .bd{font-family:var(--f-mono);font-size:10.5px;font-weight:500;padding:3px 4px;border-radius:4px;background:var(--lv);color:#fff;text-align:center}
+.rl-lvl .pc{font-family:var(--f-mono);font-size:11px;font-weight:500;color:var(--muted)}
+.rl-lvl[aria-current="page"] .pc{color:#C9D3E3}
+.rl-mods{margin:2px 0 8px 12px;border-left:2px solid var(--line);padding-left:4px}
+.ri .st.pass{background:var(--good);border-color:var(--good)}
+.ri .st.seen{border-color:var(--orange)}
+.ladder{display:grid;gap:12px;margin:22px 0}
+.rung{display:grid;grid-template-columns:86px minmax(0,1fr) minmax(0,190px);min-width:0;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--lv);border-radius:10px;padding:14px 16px;text-align:left;width:100%;color:var(--ink)}
+.rung:hover{border-color:var(--lv)}
+.rung .bd{font-family:var(--f-mono);font-size:13px;font-weight:500;background:var(--lv);color:#fff;border-radius:6px;padding:8px 6px;text-align:center}
+.rung .bd b{display:block;font-family:var(--f-head);font-size:20px;font-weight:900}
+.rung h3{font-size:18px;font-weight:800}
+.rung p{margin:2px 0 0;font-size:14.5px;color:var(--muted)}
+.rung .meta{font-family:var(--f-mono);font-size:12px;color:var(--muted);text-align:right}
+.bar{height:6px;border-radius:999px;background:var(--sunk);overflow:hidden;margin-top:6px;min-width:90px}
+.bar i{display:block;height:100%;background:var(--lv,var(--good))}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:20px 0}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.fact b{display:block;font-family:var(--f-head);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.fact span{font-size:15px}
+.mlist{display:grid;gap:8px;margin:12px 0}
+.mrow{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:10px 14px;text-align:left;width:100%;color:var(--ink)}
+.mrow:hover{border-color:var(--orange)}
+.mrow .n{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.mrow b{font-family:var(--f-head);font-size:15.5px}
+.mrow small{display:block;color:var(--muted);font-size:13.5px}
+.quiz .qq{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
+.quiz .qq h4{font-family:var(--f-body);font-size:16px;font-weight:700;margin-bottom:8px}
+.quiz .op{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:var(--sunk);border:1px solid transparent;border-radius:8px;padding:8px 12px;margin:5px 0;font-size:15px}
+.quiz .op:hover:not(:disabled){border-color:var(--line)}
+.quiz .op .k{font-family:var(--f-mono);font-size:12px;color:var(--muted);padding-top:2px}
+.quiz .op.sel{border-color:var(--navy-2);background:var(--navy-soft)}
+.quiz .op.right{border-color:var(--good);background:var(--good-soft)}
+.quiz .op.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.quiz .op:disabled{opacity:1;cursor:default}
+.quiz .why{font-size:14.5px;color:var(--muted);margin-top:8px;border-top:1px dashed var(--line);padding-top:8px}
+.score{display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-top:14px}
+.score .big{font-family:var(--f-head);font-weight:900;font-size:26px}
+.facmode .fac,.facmode .facg{display:block}
+.facg{background:var(--amber-soft);border:1px solid var(--amber);border-radius:10px;padding:14px 18px;margin-top:16px}
+.facg h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+.lock{background:var(--sunk);border:1px dashed var(--line);border-radius:10px;padding:16px 18px;color:var(--muted)}
+.cert{border:3px double var(--navy-2);border-radius:14px;background:var(--surface);padding:34px 28px;text-align:center;margin-top:18px}
+.cert h2{font-size:30px;font-weight:900;margin:8px 0}
+.cert .who{font-family:var(--f-head);font-size:26px;font-weight:800;border-bottom:1px solid var(--line);display:inline-block;padding:4px 30px;margin:10px 0}
+.cert p{color:var(--muted);margin:6px 0}
+.tools{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.tools span{font-size:13px;background:var(--navy-soft);color:var(--navy-2);padding:3px 9px;border-radius:999px;font-weight:600}
+.gl dt{font-family:var(--f-head);font-weight:800;margin-top:12px}
+.gl dd{margin:2px 0 0;color:var(--muted)}
+.search{max-width:360px;margin:12px 0}
+.ri.lk{color:var(--muted)}.ri.lk[aria-current="page"]{color:#fff}.lkg{font-size:11px;opacity:.75}
+.lock a,.callout a{color:inherit;font-weight:700}
+.printonly{display:none}
+@media (max-width:860px){.facts{grid-template-columns:1fr}.rung{grid-template-columns:64px minmax(0,1fr)}.rung .meta{grid-column:1/-1;text-align:left}}
+@media print{
+  .top,aside.rail,aside.panel,.tabs,.noprint,.status{display:none!important}
+  .shell,.shell.wide{display:block;padding:0}
+  body{background:#fff;color:#000;font-size:11.5pt}
+  .printonly{display:block}
+  .rev .body{display:block}
+  .facg,.fac{break-inside:avoid}
+  .pbreak{break-before:page}
+  .card,.callout,.qq,.ex{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <button class="tbtn menubtn" id="menuBtn" aria-expanded="false" aria-controls="rail">Menu</button>
+  <div class="brand">HUMAN PERFORMANCE PATHWAY<small>Course preview · H²S Consultants</small></div><span class="chip or">PREVIEW</span>
+  <span class="sp"></span>
+  <button class="tbtn" id="facBtn" type="button" aria-pressed="false">Facilitator mode</button>
+</div></header>
+<div class="wrap"><div class="shell" id="shell">
+  <aside class="rail" id="rail" aria-label="Pathway navigation"></aside>
+  <main id="main" tabindex="-1"></main>
+  <aside class="panel" id="panel" hidden></aside>
+</div></div>
+<script>window.HP={_levels:[],_programme:null,level(o){this._levels.push(o);},programme(o){this._programme=o;}};</script>
+<script src="content/preview.js"></script>
+<script>
+/* =====================================================================
+   HUMAN PERFORMANCE PATHWAY - app
+   Content lives in content/L1.js .. L5.js and content/programme.js
+   ===================================================================== */
+const LEVELS=window.HP._levels.sort((a,b)=>a.n-b.n);
+const PROG=window.HP._programme||{};
+const PV=window.HP.preview||null;   // preview edition config, set by content/preview.js
+const KEY=PV?"hp-pathway-preview-v1":"hp-pathway-v1";
+let S={name:"",fac:false,quiz:{},ans:{},sort:{},seen:{}};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}};
+const $=s=>document.querySelector(s);
+const el=(t,a={},h)=>{const e=document.createElement(t);for(const k in a){if(k==="class")e.className=a[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),a[k]);else e.setAttribute(k,a[k]);}if(h!==undefined)e.innerHTML=h;return e;};
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const PASS=0.8;
+const toast=t=>{const d=el("div",{class:"toast",role:"status"},esc(t));document.body.appendChild(d);setTimeout(()=>d.remove(),2200);};
+
+/* ---------- progress ---------- */
+const mScore=m=>{const r=S.quiz[m.id];return r?r.best:null;};
+const mPassed=m=>{const s=mScore(m);return s!==null&&s>=PASS;};
+const openMods=L=>L.modules.filter(m=>!m.locked);
+const lvlPct=L=>{const o=openMods(L);return o.length?Math.round(100*o.filter(mPassed).length/o.length):0;};
+const lvlDone=L=>!PV&&L.modules.every(mPassed);
+const lockBox=(what)=>`<div class="lock"><b>${esc(what)}</b> is part of the full pathway. <a href="#full">See what the full pathway includes</a>.</div>`;
+const findLevel=id=>LEVELS.find(l=>l.id===id);
+const findMod=(L,mid)=>L.modules.find(m=>m.id===mid||String(m.n)===String(mid));
+const allMods=()=>LEVELS.flatMap(L=>L.modules.map(m=>({L,m})));
+
+/* ---------- routing ---------- */
+// #start  #map  #L1  #L1-L1M2-learn  #L1-assessment  #framework  #programme  #glossary  #progress
+function route(){const h=(location.hash||"#").slice(1).replace(/^\//,"").split(/[-\/]/);return{a:h[0]||"",b:h[1]||"",c:h[2]||"learn"};}
+const go=p=>{location.hash=p?"#"+p.replace(/\//g,"-"):"#start";};
+window.addEventListener("hashchange",render);
+
+/* ---------- rail ---------- */
+function renderRail(){
+  const r=route(),rail=$("#rail");rail.innerHTML="";
+  const nav=(label,path,num)=>{const b=el("button",{class:"ri",type:"button"},`<span class="n">${num||""}</span><span>${esc(label)}</span><span></span>`);if(r.a===path||(path===""&&r.a==="start"))b.setAttribute("aria-current","page");b.onclick=()=>{go(path);closeRail();};return b;};
+  rail.appendChild(el("h4",{},"Pathway"));
+  rail.appendChild(nav("Start here","","·"));
+  rail.appendChild(nav("Pathway map","map","·"));
+  rail.appendChild(el("h4",{},"Levels"));
+  LEVELS.forEach(L=>{
+    const b=el("button",{class:"rl-lvl lvl-c"+L.n,type:"button"},`<span class="bd">${esc(L.badge)}</span><span>${esc(L.name)}</span><span class="pc">${lvlPct(L)}%</span>`);
+    if(r.a===L.id&&!r.b)b.setAttribute("aria-current","page");
+    b.onclick=()=>{go(L.id);closeRail();};rail.appendChild(b);
+    if(r.a===L.id){const box=el("div",{class:"rl-mods"});
+      L.modules.forEach(m=>{const st=mPassed(m)?"pass":(S.seen[m.id]&&!m.locked?"seen":"");
+        const mb=el("button",{class:"ri"+(m.locked?" lk":""),type:"button"},`<span class="n">${L.n}.${m.n}</span><span>${esc(m.t)}</span>${m.locked?`<span class="lkg" title="Full pathway only">🔒</span>`:`<span class="st ${st}"></span>`}`);
+        if(r.b===m.id)mb.setAttribute("aria-current","page");mb.onclick=()=>{go(`${L.id}/${m.id}/learn`);closeRail();};box.appendChild(mb);});
+      if(L.capstone){const cb=el("button",{class:"ri",type:"button"},`<span class="n">★</span><span>Capstone</span><span></span>`);if(r.b==="capstone")cb.setAttribute("aria-current","page");cb.onclick=()=>{go(`${L.id}/capstone`);closeRail();};box.appendChild(cb);}
+      const ab=el("button",{class:"ri",type:"button"},`<span class="n">✓</span><span>Assessment</span><span></span>`);if(r.b==="assessment")ab.setAttribute("aria-current","page");ab.onclick=()=>{go(`${L.id}/assessment`);closeRail();};box.appendChild(ab);
+      rail.appendChild(box);}
+  });
+  rail.appendChild(el("h4",{},"Programme"));
+  rail.appendChild(nav("Competency framework","framework","·"));
+  rail.appendChild(nav("Programme toolkit","programme","·"));
+  rail.appendChild(nav("Glossary","glossary","·"));
+  rail.appendChild(nav("References","references","·"));
+  rail.appendChild(nav("My progress","progress","·"));
+  if(PV){const c=el("button",{class:"btn",type:"button",style:"width:100%;margin-top:14px"},"Get the full pathway");c.onclick=()=>{go("full");closeRail();};rail.appendChild(c);}
+  rail.appendChild(el("div",{class:"legend"},`<span><i style="background:var(--good);border-color:var(--good)"></i>Knowledge check passed (≥80%)</span><span><i style="border-color:var(--orange)"></i>Opened</span>`));
+}
+const closeRail=()=>{$("#rail").classList.remove("open");$("#menuBtn").setAttribute("aria-expanded","false");};
+
+/* ---------- interactions inside learn HTML ---------- */
+function wire(root,key){
+  root.querySelectorAll(".rev>button").forEach(b=>b.onclick=()=>b.parentElement.classList.toggle("open"));
+  root.querySelectorAll(".sortq").forEach((box,bi)=>{
+    let items,opts;try{items=JSON.parse(box.dataset.sort);opts=JSON.parse(box.dataset.opts);}catch(e){return;}
+    const k=key+"-"+bi;S.sort[k]=S.sort[k]||{};
+    items.forEach(([txt,ans],i)=>{const it=el("div",{class:"it"});it.appendChild(el("span",{},esc(txt)));const o=el("div",{class:"opts"});
+      opts.forEach(op=>{const b=el("button",{type:"button"},esc(op));const paint=()=>{const v=S.sort[k][i];b.classList.toggle("sel",v===op);it.classList.toggle("ok",v!==undefined&&v===ans);it.classList.toggle("no",v!==undefined&&v!==ans);};
+        b.onclick=()=>{S.sort[k][i]=op;save();o.querySelectorAll("button").forEach(x=>x.dispatchEvent(new Event("paint")));};b.addEventListener("paint",paint);paint();o.appendChild(b);});
+      it.appendChild(o);box.appendChild(it);});
+    box.appendChild(el("p",{class:"fb"},"Choose an answer for each line. Green matches the source classification; red means look again."));
+  });
+}
+
+/* ---------- views ---------- */
+function setShell(wide){$("#shell").classList.toggle("wide",!!wide);$("#panel").hidden=!wide;}
+
+function vHome(m){
+  setShell(false);
+  const total=allMods().length,passed=allMods().filter(x=>mPassed(x.m)).length;
+  const nOpen=allMods().filter(x=>!x.m.locked).length;
+  m.innerHTML=`<div class="eyebrow">H²S Consultants · Human performance pathway${PV?" · Preview edition":""}</div>
+  <h1>From awareness to mastery</h1>
+  <p class="lede">A five-level training pack that takes people from first awareness of human performance on site to leading and running a human performance programme. Each level builds on the one below and is assessed against a published competency framework.</p>
+  ${PV?`<div class="callout or"><h4>You are looking at the preview</h4><p>One complete module is open at each level, ${nOpen} of ${total} in all, with its teaching content, group exercise and knowledge check. Every other module is listed with its objective and tools so you can see the full scope. The full pathway adds the remaining ${total-nOpen} modules, facilitator notes and model answers, practical assessments, capstones and the programme toolkit.</p><p style="margin:0"><button class="btn" id="tryBtn" type="button">Try a sample module</button> <button class="btn gh" id="fullBtn" type="button">Get the full pathway</button></p></div>`:""}
+  <div class="facts">
+    <div class="fact"><b>Levels</b><span>${LEVELS.length}</span></div>
+    <div class="fact"><b>Modules</b><span>${total}</span></div>
+    <div class="fact"><b>Knowledge checks</b><span>${allMods().reduce((a,x)=>a+(x.m.nq||x.m.quiz.length),0)} questions</span></div>
+    <div class="fact"><b>${PV?"Open in this preview":"Your progress"}</b><span>${PV?`${nOpen} sample modules`:`${passed} of ${total} passed`}</span></div>
+  </div>
+  <div class="ladder" id="ladder"></div>
+  <div class="grid3">
+    <div class="card"><h4>1 Learn</h4><p>Each module has teaching content with sorting and reveal interactions to check understanding as you go.</p></div>
+    <div class="card"><h4>2 Practise</h4><p>Every module ends with a Gulf-region scenario exercise. Work it as a group; type answers to keep a record or copy them for the facilitator.</p></div>
+    <div class="card"><h4>3 Check and prove</h4><p>Pass the knowledge check at 80% or above, then complete the level's practical assessment or capstone with an assessor.</p></div>
+  </div>
+  ${PV?"":`<div class="callout" style="margin-top:18px"><h4>Facilitators</h4><p>Switch on <b>Facilitator mode</b> in the top bar to show model answers, debrief points and delivery notes in every module. Use <b>Full level pack</b> on any level page to see a whole level on one page, ready to print as a participant or facilitator pack.</p></div>`}
+  <p class="note" style="margin-top:14px">Content follows the Energy Institute human factors resources, HSE HSG48, IOGP, CCPS and the published research named in each module. All scenarios are composite and fictional.</p>`;
+  ladder($("#ladder"));
+  if(PV){const f=LEVELS[0],fm=openMods(f)[0];$("#tryBtn").onclick=()=>go(`${f.id}/${fm.id}/learn`);$("#fullBtn").onclick=()=>go("full");}
+}
+function ladder(box){
+  [...LEVELS].reverse().forEach(L=>{
+    const b=el("button",{class:"rung lvl-c"+L.n,type:"button"},`<div class="bd">LEVEL<b>${L.n}</b>${esc(L.badge)}</div>
+    <div><h3>${esc(L.title)}</h3><p>${esc(L.tagline)}</p><p><b>For:</b> ${esc(L.audience)}</p></div>
+    <div class="meta">${esc(L.duration)}<br>${L.modules.length} modules<div class="bar"><i style="width:${lvlPct(L)}%"></i></div></div>`);
+    b.onclick=()=>go(L.id);box.appendChild(b);});
+}
+
+function vMap(m){
+  setShell(false);
+  m.innerHTML=`<div class="eyebrow">Pathway map</div><h1>Who takes which level</h1>
+  <p class="lede">Levels are cumulative. Most of the workforce stops at Foundation or Practitioner; analysts, leaders and programme leads go further.</p>
+  <div class="tbl"><table><thead><tr><th>Level</th><th>Audience</th><th>Entry requirement</th><th>Duration</th><th>Format</th></tr></thead><tbody>
+  ${LEVELS.map(L=>`<tr><td>${esc(L.badge)} ${esc(L.name)}</td><td>${esc(L.audience)}</td><td>${esc(L.prereq)}</td><td>${esc(L.duration)}</td><td>${esc(L.format)}</td></tr>`).join("")}
+  </tbody></table></div>
+  <h2 style="margin-top:26px;font-size:24px">Role-based routes</h2>
+  ${PROG.routes?`<div class="tbl"><table><thead><tr><th>Role</th>${LEVELS.map(L=>`<th>${esc(L.badge)}</th>`).join("")}</tr></thead><tbody>
+  ${PROG.routes.map(r=>`<tr><td>${esc(r.role)}</td>${r.req.map(x=>`<td>${x==="R"?"<b>Required</b>":x==="O"?"Optional":x==="E"?"Expected":"·"}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+  <p class="note">Required: must hold before working unsupervised in the role. Expected: within 12 months of appointment. Optional: by development plan.</p>`:""}
+  <div class="ladder" id="ladder"></div>`;
+  ladder($("#ladder"));
+}
+
+function vLevel(m,L){
+  setShell(false);
+  m.innerHTML=`<div class="eyebrow">Level ${L.n} · ${esc(L.badge)}</div><h1>${esc(L.title)}</h1><p class="lede">${esc(L.tagline)}</p>
+  <div class="facts">
+    <div class="fact"><b>Audience</b><span>${esc(L.audience)}</span></div>
+    <div class="fact"><b>Entry</b><span>${esc(L.prereq)}</span></div>
+    <div class="fact"><b>Duration</b><span>${esc(L.duration)}</span></div>
+    <div class="fact"><b>Format</b><span>${esc(L.format)}</span></div>
+  </div>
+  <div class="row noprint" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="startBtn" type="button">${PV?"Open the sample module":(lvlPct(L)?"Continue":"Start")+" level"}</button>${PV?"":`<button class="btn gh" id="printBtn" type="button">Full level pack</button>`}</div>
+  <div class="prose">
+  <h2>Learning outcomes</h2><ol>${L.outcomes.map(o=>`<li>${esc(o)}</li>`).join("")}</ol>
+  <h2>Modules</h2></div>
+  <div class="mlist" id="mlist"></div>
+  <div class="prose"><h2>Competencies certified</h2></div>
+  <div class="tbl"><table><thead><tr><th>Code</th><th>Competency</th><th>Evidence</th></tr></thead><tbody>
+  ${L.competencies.map(c=>`<tr><td>${esc(c.code)}</td><td>${esc(c.statement)}</td><td>${esc(c.evidence)}</td></tr>`).join("")}</tbody></table></div>
+  <div class="prose"><h2>Timetable</h2></div>
+  <div class="tbl"><table><thead><tr><th>Block</th><th>Content</th></tr></thead><tbody>${(L.schedule||[]).map(s=>`<tr><td>${esc(s.block)}</td><td>${esc(s.items)}</td></tr>`).join("")}</tbody></table></div>
+  <div class="prose"><h2>Assessment</h2><p>${esc(L.assessment.summary)}</p><p><b>Pass criteria:</b> ${esc(L.assessment.pass)}</p>
+  <p><a href="#${L.id}-assessment">Open the practical assessment brief</a>${L.capstone?` · <a href="#${L.id}-capstone">Open the capstone brief</a>`:""}</p></div>`;
+  const ml=$("#mlist");
+  L.modules.forEach(x=>{const s=mScore(x);const b=el("button",{class:"mrow",type:"button"},`<span class="n">${L.n}.${x.n}</span><span><b>${esc(x.t)}</b><small>${esc(x.obj)}</small></span><span class="pill ${x.locked?"":mPassed(x)?"sub":s!==null?"draft":PV?"disc":""}">${x.locked?"🔒 Full pathway":s!==null?Math.round(s*100)+"%":PV?"Open sample":x.mins+" min"}</span>`);b.onclick=()=>go(`${L.id}/${x.id}/learn`);ml.appendChild(b);});
+  $("#startBtn").onclick=()=>{const o=openMods(L);const nx=o.find(x=>!mPassed(x))||o[0];go(`${L.id}/${nx.id}/learn`);};
+  if(!PV)$("#printBtn").onclick=()=>printLevel(L);
+}
+
+function vLocked(m,L,mod){
+  setShell(false);
+  const idx=L.modules.indexOf(mod),o=openMods(L)[0];
+  m.innerHTML=`<div class="eyebrow">${esc(L.badge)} ${esc(L.name)} · Module ${L.n}.${mod.n} · ${mod.mins} min · Full pathway</div><h1>${esc(mod.t)}</h1>
+  <div class="obj"><b>Objective</b><p>${esc(mod.obj)}</p></div>
+  ${mod.tools&&mod.tools.length?`<div class="prose"><h3>Tools and templates you take away</h3></div><div class="tools">${mod.tools.map(t=>`<span>${esc(t)}</span>`).join("")}</div>`:""}
+  <div class="prose"><h3>What this module contains</h3><ul><li>Teaching content with interactive checks${mod.words?` (about ${mod.words} words)`:""}</li><li>Group exercise: <b>${esc(mod.exTitle||"scenario exercise")}</b>${mod.exTime?`, ${esc(mod.exTime)}`:""}</li><li>Knowledge check: ${mod.nq||6} questions with explanations</li><li>Facilitator delivery notes and model answers</li></ul></div>
+  <div class="callout or" style="margin-top:16px"><h4>This module is in the full pathway</h4><p>The preview opens one module per level. ${o?`In ${esc(L.badge)} that is <b>${esc(o.t)}</b>.`:""}</p><p style="margin:0">${o?`<button class="btn sec" id="goOpen" type="button">Open the sample module</button> `:""}<button class="btn" id="goFull" type="button">Get the full pathway</button></p></div>`;
+  if(o)$("#goOpen").onclick=()=>go(`${L.id}/${o.id}/learn`);$("#goFull").onclick=()=>go("full");
+}
+function vModule(m,L,mod,tab){
+  if(mod.locked)return vLocked(m,L,mod);
+  setShell(true);
+  S.seen[mod.id]=1;save();
+  const idx=L.modules.indexOf(mod),prev=L.modules[idx-1],next=L.modules[idx+1];
+  m.innerHTML=`<div class="eyebrow">${esc(L.badge)} ${esc(L.name)} · Module ${L.n}.${mod.n} · ${mod.mins} min</div><h1>${esc(mod.t)}</h1>
+  <div class="obj"><b>Objective</b><p>${esc(mod.obj)}</p></div>
+  ${mod.tools&&mod.tools.length?`<div class="tools">${mod.tools.map(t=>`<span>${esc(t)}</span>`).join("")}</div>`:""}
+  <div class="tabs" role="tablist">
+   ${[["learn","Learn"],["exercise","Exercise"],["quiz","Knowledge check",mod.quiz.length],["facilitator","Facilitator"]].map(([k,t,c])=>`<button class="tab" role="tab" type="button" data-t="${k}" aria-selected="${tab===k}">${t}${c?`<span class="cnt">${c}</span>`:""}</button>`).join("")}
+  </div><div id="tabBody" style="margin-top:18px"></div>
+  <div class="row noprint" style="display:flex;justify-content:space-between;gap:8px;margin-top:30px;flex-wrap:wrap">
+   ${prev?`<button class="btn gh" id="prevBtn" type="button">← ${esc(prev.t)}</button>`:"<span></span>"}
+   ${next?`<button class="btn sec" id="nextBtn" type="button">${esc(next.t)} →</button>`:`<button class="btn sec" id="nextBtn" type="button">Level assessment →</button>`}
+  </div>`;
+  m.querySelectorAll(".tab").forEach(b=>b.onclick=()=>go(`${L.id}/${mod.id}/${b.dataset.t}`));
+  if(prev)$("#prevBtn").onclick=()=>go(`${L.id}/${prev.id}/learn`);
+  $("#nextBtn").onclick=()=>go(next?`${L.id}/${next.id}/learn`:`${L.id}/assessment`);
+  const tb=$("#tabBody");
+  if(tab==="exercise")tExercise(tb,mod);
+  else if(tab==="quiz")tQuiz(tb,L,mod);
+  else if(tab==="facilitator")tFac(tb,mod);
+  else{tb.innerHTML=`<div class="prose">${mod.learn}</div>`;wire(tb,mod.id);}
+  panel(L,mod);
+}
+
+function tExercise(tb,mod){
+  const E=mod.activity;S.ans[mod.id]=S.ans[mod.id]||{};
+  tb.innerHTML=`<div class="ex"><div class="ex-h"><span class="k">Group exercise</span><h3>${esc(E.title)}</h3><span class="time">${esc(E.time)}</span></div>
+  <div class="ex-b"><div class="scn"><h4>Scenario</h4>${E.scn}</div><div id="qs"></div>
+  <div class="fac" ${S.fac&&E.fac?"":"hidden"}><h4>Facilitator: model answers and debrief points</h4><ul>${(E.fac||[]).map(f=>`<li>${esc(f)}</li>`).join("")}</ul></div></div>
+  <div class="status"><button class="btn" id="copyBtn" type="button">Copy answers for facilitator</button><span class="note">Answers are saved in this browser only.</span></div></div>`;
+  const qs=$("#qs");
+  E.qs.forEach((q,i)=>{const d=el("div",{class:"q"});d.innerHTML=`<label for="a${i}">${i+1}. ${esc(q.q)}</label><p class="hint">${esc(q.hint)}</p>`;
+    const ta=el("textarea",{id:"a"+i});ta.value=S.ans[mod.id][i]||"";ta.oninput=()=>{S.ans[mod.id][i]=ta.value;save();};d.appendChild(ta);qs.appendChild(d);});
+  $("#copyBtn").onclick=async()=>{const t=`${mod.id} ${mod.t} - ${E.title}\nGroup/participant: ${S.name||"(not set)"}\n\n`+E.qs.map((q,i)=>`${i+1}. ${q.q}\n${S.ans[mod.id][i]||"(no answer)"}`).join("\n\n");
+    try{await navigator.clipboard.writeText(t);toast("Copied to clipboard");}catch(e){const w=el("textarea",{});w.value=t;tb.appendChild(w);w.select();toast("Select and copy the text below");}};
+}
+
+function tQuiz(tb,L,mod){
+  const st={pick:{},done:false};
+  const draw=()=>{
+    tb.innerHTML=`<div class="quiz" id="qz"></div>`;const qz=$("#qz");
+    mod.quiz.forEach((q,i)=>{const d=el("div",{class:"qq"});d.innerHTML=`<h4>${i+1}. ${esc(q.q)}</h4>`;
+      q.opts.forEach((o,j)=>{const b=el("button",{class:"op",type:"button"},`<span class="k">${"ABCD"[j]}</span><span>${esc(o)}</span>`);
+        if(st.done){b.disabled=true;if(j===q.a)b.classList.add("right");else if(st.pick[i]===j)b.classList.add("wrong");}
+        else{if(st.pick[i]===j)b.classList.add("sel");b.onclick=()=>{st.pick[i]=j;draw();};}
+        d.appendChild(b);});
+      if(st.done)d.appendChild(el("p",{class:"why"},`<b>${st.pick[i]===q.a?"Correct.":"Answer: "+"ABCD"[q.a]+"."}</b> ${esc(q.why)}`));
+      qz.appendChild(d);});
+    const answered=Object.keys(st.pick).length,best=mScore(mod);
+    if(!st.done){const s=el("div",{class:"score"},`<button class="btn" id="mark" type="button" ${answered<mod.quiz.length?"disabled":""}>Mark my answers</button><span class="note">${answered} of ${mod.quiz.length} answered. Pass mark 80%.${best!==null?` Best so far: ${Math.round(best*100)}%.`:""}</span>`);qz.appendChild(s);
+      s.querySelector("#mark").onclick=()=>{st.done=true;const sc=mod.quiz.filter((q,i)=>st.pick[i]===q.a).length/mod.quiz.length;
+        const r=S.quiz[mod.id]||{best:0,tries:0};r.tries++;r.best=Math.max(r.best,sc);r.last=sc;S.quiz[mod.id]=r;save();draw();renderRail();panel(L,mod);window.scrollTo({top:0,behavior:"smooth"});};}
+    else{const sc=S.quiz[mod.id].last,p=sc>=PASS;const s=el("div",{class:"score"},`<span class="big" style="color:var(--${p?"good":"bad"})">${Math.round(sc*100)}%</span><span>${p?"Passed. This module is complete.":"Not yet. Review the Learn tab and try again."}</span><button class="btn gh" id="retry" type="button">Try again</button>`);qz.prepend(s);s.querySelector("#retry").onclick=()=>{st.pick={};st.done=false;draw();};}
+  };draw();
+}
+
+function tFac(tb,mod){
+  if(PV){tb.innerHTML=`<div class="prose"><p>The full pathway gives the facilitator, for every module:</p><ul><li><b>Delivery notes</b>: timings, how to run the session, common misconceptions and the kit needed.</li><li><b>Model answers and debrief points</b> for the group exercise (${mod.nfac||"several"} for this one).</li><li><b>Knowledge check answer key</b> with the reasoning behind each answer.</li><li><b>A one-page level pack</b> for printing, in participant and facilitator versions.</li></ul></div>${lockBox("The facilitator material for this module")}`;return;}
+  tb.innerHTML=`<div class="facg"><h4>Delivery notes</h4><div class="prose">${mod.facGuide||"<p>No notes.</p>"}</div></div>
+  <div class="fac"><h4>Exercise model answers: ${esc(mod.activity.title)}</h4><ul>${mod.activity.fac.map(f=>`<li>${esc(f)}</li>`).join("")}</ul></div>
+  <div class="fac"><h4>Knowledge check answer key</h4><ol>${mod.quiz.map(q=>`<li><b>${"ABCD"[q.a]}</b> ${esc(q.opts[q.a])}</li>`).join("")}</ol></div>
+  <p class="note" style="margin-top:12px">Timing: ${mod.mins} minutes in total, of which the exercise takes ${esc(mod.activity.time)}.</p>`;
+}
+
+function panel(L,mod){
+  const p=$("#panel");const s=mScore(mod);
+  p.innerHTML=`<div class="pbox lvl-c${L.n}"><h4>This level</h4><div class="big">${esc(L.badge)} ${esc(L.name)}</div><div class="bar"><i style="width:${lvlPct(L)}%"></i></div><p class="sm" style="margin:6px 0 0">${L.modules.filter(mPassed).length} of ${L.modules.length} knowledge checks passed</p></div>
+  <div class="pbox"><h4>This module</h4><p class="sm" style="margin:0">${s===null?"Knowledge check not attempted.":`Best score ${Math.round(s*100)}% (${S.quiz[mod.id].tries} attempt${S.quiz[mod.id].tries>1?"s":""}).`}</p>
+  ${mod.tools&&mod.tools.length?`<ul>${mod.tools.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`:""}</div>
+  <div class="pbox"><h4>Participant</h4><div class="field"><label for="pname">Name or group</label><input id="pname" value="${esc(S.name)}"></div><p class="sm" style="margin:0">Used on copied answers and your certificate.</p></div>`;
+  $("#pname").oninput=e=>{S.name=e.target.value;save();};
+}
+
+function vAssess(m,L){
+  setShell(false);const A=L.assessment;
+  m.innerHTML=`<div class="eyebrow">${esc(L.badge)} · Assessment</div><h1>${esc(L.title)}: assessment</h1>
+  <div class="prose"><p class="lede">${esc(A.summary)}</p><div class="callout or"><h4>Pass criteria</h4><p>${esc(A.pass)}</p></div>
+  <h2>Knowledge checks</h2></div>
+  <div class="tbl"><table><thead><tr><th>Module</th><th>Best score</th><th>Status</th></tr></thead><tbody>
+  ${L.modules.map(x=>{const s=mScore(x);return`<tr><td>${L.n}.${x.n} ${esc(x.t)}</td><td>${s===null?"·":Math.round(s*100)+"%"}</td><td>${x.locked?"Full pathway":mPassed(x)?'<span class="pill sub">Passed</span>':s!==null?'<span class="pill draft">Retake</span>':"Not attempted"}</td></tr>`;}).join("")}</tbody></table></div>
+  <div class="prose"><h2>Practical assessment</h2>${A.practical||lockBox("The practical assessment brief and marking rubric")}</div>
+  ${PV?"":lvlDone(L)?`<div class="callout" style="margin-top:18px"><h4>Knowledge element complete</h4><p>You can print a record of completion. Certification at ${esc(L.badge)} also needs the practical assessment${L.capstone?" and capstone":""} signed off by an assessor.</p><button class="btn" id="certBtn" type="button">Show record of completion</button></div>`:`<div class="lock" style="margin-top:18px">Pass every knowledge check in this level to unlock the record of completion.</div>`}`;
+  wire(m,L.id+"-as");
+  if(lvlDone(L))$("#certBtn").onclick=()=>go("progress");
+}
+
+function vCapstone(m,L){
+  setShell(false);const C=L.capstone;
+  m.innerHTML=`<div class="eyebrow">${esc(L.badge)} · Capstone</div><h1>${esc(C.title)}</h1><div class="prose">${C.brief||(C.summary?`<p class="lede">${esc(C.summary)}</p>`:"")}
+  <h2>Deliverables</h2><ul>${C.deliverables.map(d=>`<li>${esc(d)}</li>`).join("")}</ul>${C.rubric?"<h2>Marking rubric</h2>":""}</div>
+  ${C.rubric?`<div class="tbl"><table><thead><tr><th>Criterion</th><th>Competent</th><th>Distinction</th></tr></thead><tbody>${C.rubric.map(r=>`<tr><td>${esc(r.criterion)}</td><td>${esc(r.competent)}</td><td>${esc(r.distinction)}</td></tr>`).join("")}</tbody></table></div>`:lockBox("The full capstone brief and marking rubric")}`;
+  wire(m,L.id+"-cap");
+}
+
+function vFramework(m){
+  setShell(false);
+  m.innerHTML=`<div class="eyebrow">Competency framework</div><h1>What each level certifies</h1>
+  <p class="lede">${esc(PROG.frameworkIntro||"Competencies build level by level. Each is assessed against the evidence shown.")}</p>
+  <input class="search noprint" id="fq" placeholder="Filter competencies">
+  <div class="tbl"><table id="ft"><thead><tr><th>Code</th><th>Level</th><th>Competency</th><th>Evidence</th></tr></thead><tbody>
+  ${LEVELS.flatMap(L=>L.competencies.map(c=>`<tr><td>${esc(c.code)}</td><td>${esc(L.badge)} ${esc(L.name)}</td><td>${esc(c.statement)}</td><td>${esc(c.evidence)}</td></tr>`)).join("")}</tbody></table></div>
+  ${PROG.proficiency?`<div class="prose"><h2>Proficiency scale</h2></div><div class="tbl"><table><thead><tr><th>Level</th><th>Descriptor</th></tr></thead><tbody>${PROG.proficiency.map(p=>`<tr><td>${esc(p[0])}</td><td>${esc(p[1])}</td></tr>`).join("")}</tbody></table></div>`:""}`;
+  $("#fq").oninput=e=>{const q=e.target.value.toLowerCase();m.querySelectorAll("#ft tbody tr").forEach(r=>r.hidden=!!q&&!r.textContent.toLowerCase().includes(q));};
+}
+function vProgramme(m){setShell(false);m.innerHTML=`<div class="eyebrow">Programme toolkit</div><h1>Running the pathway on your site</h1><div class="prose">${PROG.toolkit||`<p class="lede">The programme toolkit shows how to roll the pathway out on an asset, keep delivery consistent and show that it is working.</p><ul>${(PROG.toolkitTeaser||[]).map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`+lockBox("The programme toolkit")}</div>`;wire(m,"prog");}
+function vGlossary(m){
+  setShell(false);const g=(PROG.glossary||[]).slice().sort((a,b)=>a[0].localeCompare(b[0]));
+  m.innerHTML=`<div class="eyebrow">Glossary</div><h1>Terms used in the pathway</h1><input class="search noprint" id="gq" placeholder="Search terms"><dl class="gl" id="gl">${g.map(([t,d])=>`<div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join("")}</dl>${PV&&PROG.glossaryTotal?`<p class="note" style="margin-top:16px">Showing ${g.length} of ${PROG.glossaryTotal} terms.</p>`+lockBox("The complete glossary"):""}`;
+  $("#gq").oninput=e=>{const q=e.target.value.toLowerCase();m.querySelectorAll("#gl>div").forEach(r=>r.hidden=!!q&&!r.textContent.toLowerCase().includes(q));};
+}
+function vRefs(m){setShell(false);m.innerHTML=`<div class="eyebrow">References</div><h1>Sources and further reading</h1><div class="prose"><ul>${(PROG.references||[]).map(r=>`<li>${esc(r)}</li>`).join("")}</ul></div>`;}
+function vProgress(m){
+  setShell(false);
+  m.innerHTML=`<div class="eyebrow">My progress</div><h1>${S.name?esc(S.name):"Your progress"}</h1>
+  <div class="field noprint" style="max-width:360px"><label for="pn">Name on records</label><input id="pn" value="${esc(S.name)}"></div>
+  <div class="tbl"><table><thead><tr><th>Level</th><th>Knowledge checks passed</th><th>Status</th></tr></thead><tbody>
+  ${LEVELS.map(L=>`<tr><td>${esc(L.badge)} ${esc(L.title)}</td><td>${L.modules.filter(mPassed).length} / ${PV?openMods(L).length+" sample":L.modules.length}</td><td>${lvlDone(L)?'<span class="pill sub">Knowledge complete</span>':lvlPct(L)?'<span class="pill draft">In progress</span>':"Not started"}</td></tr>`).join("")}</tbody></table></div>
+  <div id="certs"></div>
+  <div class="row noprint" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px"><button class="btn gh" id="rst" type="button">Reset all progress</button></div>`;
+  $("#pn").oninput=e=>{S.name=e.target.value;save();};
+  const c=$("#certs");
+  LEVELS.filter(lvlDone).forEach(L=>c.appendChild(el("div",{class:"cert lvl-c"+L.n},`<div class="eyebrow">H²S Consultants · Human performance pathway</div><h2>Record of completion</h2><p>This records that</p><div class="who">${esc(S.name||"Participant")}</div><p>has passed every knowledge check in</p><h3 style="font-size:20px;margin:6px 0">${esc(L.badge)} ${esc(L.title)}</h3><p class="note">Knowledge element only. Full ${esc(L.badge)} certification requires the practical assessment${L.capstone?" and capstone":""} signed off by a qualified assessor.</p><p class="note">Assessor: ____________________ Date: ____________</p>`)));
+    let armed=false;$("#rst").onclick=e=>{if(!armed){armed=true;e.target.textContent="Click again to clear all answers and scores";return;}S={name:"",fac:S.fac,quiz:{},ans:{},sort:{},seen:{}};save();render();toast("Progress cleared");};
+}
+
+function vFull(m){
+  setShell(false);const total=allMods().length,nq=allMods().reduce((a,x)=>a+(x.m.nq||x.m.quiz.length),0);
+  m.innerHTML=`<div class="eyebrow">The full pathway</div><h1>Bring the Human Performance Pathway to your site</h1>
+  <div class="prose"><p class="lede">The full pathway is a complete, assessed training programme: ${LEVELS.length} levels, ${total} modules and ${nq} knowledge-check questions, with everything a facilitator needs to deliver it.</p></div>
+  <div class="tbl"><table><thead><tr><th></th><th>This preview</th><th>Full pathway</th></tr></thead><tbody>
+  <tr><td>Modules</td><td>${allMods().filter(x=>!x.m.locked).length} sample modules, one per level</td><td>All ${total} modules</td></tr>
+  <tr><td>Group exercises</td><td>Scenario and questions for the sample modules</td><td>${total} Gulf-region scenario exercises with model answers and debrief points</td></tr>
+  <tr><td>Knowledge checks</td><td>Sample modules only</td><td>${nq} questions with explanations; records of completion per level</td></tr>
+  <tr><td>Facilitator material</td><td>Not included</td><td>Delivery notes for every module, answer keys, printable participant and facilitator packs</td></tr>
+  <tr><td>Assessment</td><td>Pass criteria only</td><td>Practical assessment briefs and marking rubrics for every level</td></tr>
+  <tr><td>Capstones</td><td>Title and deliverables</td><td>Full briefs and rubrics for HP-3, HP-4 and HP-5, including the HP-5 workplace project and panel viva</td></tr>
+  <tr><td>Programme toolkit</td><td>Outline</td><td>Roll-out plan, delivery standards, facilitator qualification, certification and renewal policy, evaluation measures</td></tr>
+  </tbody></table></div>
+  <div class="grid2" style="margin-top:22px">
+  <div class="card"><h4>Delivered on site or online</h4><p>Instructor-led by H²S Consultants, by crew or by discipline, from the one-day Foundation course to the four-day Master programme.</p></div>
+  <div class="card"><h4>Tailored to your operation</h4><p>Scenarios can be rewritten around your own facilities, procedures and incident learnings, so the discussion is about your plant.</p></div>
+  <div class="card"><h4>Build your own facilitators</h4><p>HP-5 qualifies your nominated leads to deliver and assess HP-1 to HP-4 in house, so the programme does not depend on outside trainers.</p></div>
+  <div class="card"><h4>Start where you are</h4><p>Take a single level for one team, or the whole pathway for an asset. Leaders usually attend HP-4 first.</p></div></div>
+  <div class="callout or" style="margin-top:22px"><h4>${esc(PV&&PV.org||"H²S Consultants")}</h4><p>${esc(PV&&PV.pitch||"")}</p><p style="margin:0">${PV&&PV.email?`<b>${esc(PV.email)}</b>`:""}${PV&&PV.phone?` · ${esc(PV.phone)}`:""}${PV&&PV.links?PV.links.map(l=>` · <a href="${esc(l[1])}" target="_blank" rel="noopener">${esc(l[0])}</a>`).join(""):""}</p></div>`;
+}
+
+/* ---------- print a whole level ---------- */
+function printLevel(L){
+  setShell(false);const m=$("#main");
+  m.innerHTML=`<div class="noprint callout"><p>The whole ${esc(L.badge)} pack on one page${S.fac?", with facilitator notes":""}, laid out for your browser print command when the page is opened as a local file. Turn Facilitator mode ${S.fac?"off":"on"} in the top bar to ${S.fac?"produce a participant":"include facilitator"} version.</p><button class="btn gh" id="back" type="button">Back to level</button></div>
+  <div class="eyebrow">Level ${L.n} · ${esc(L.badge)}</div><h1>${esc(L.title)}</h1><p class="lede">${esc(L.tagline)}</p>
+  <div class="prose"><h2>Learning outcomes</h2><ol>${L.outcomes.map(o=>`<li>${esc(o)}</li>`).join("")}</ol></div>
+  ${L.modules.map(x=>`<section class="pbreak"><div class="eyebrow">Module ${L.n}.${x.n} · ${x.mins} min</div><h1>${esc(x.t)}</h1><div class="obj"><b>Objective</b><p>${esc(x.obj)}</p></div>
+   <div class="prose">${x.learn}</div>
+   <div class="ex"><div class="ex-h"><span class="k">Group exercise</span><h3>${esc(x.activity.title)}</h3><span class="time">${esc(x.activity.time)}</span></div><div class="ex-b"><div class="scn">${x.activity.scn}</div><ol>${x.activity.qs.map(q=>`<li><b>${esc(q.q)}</b><br><span class="note">${esc(q.hint)}</span></li>`).join("")}</ol>
+   ${S.fac?`<div class="fac"><h4>Model answers</h4><ul>${x.activity.fac.map(f=>`<li>${esc(f)}</li>`).join("")}</ul></div>`:""}</div></div>
+   <h3 style="margin-top:18px">Knowledge check</h3><ol>${x.quiz.map(q=>`<li>${esc(q.q)}<ol type="A">${q.opts.map((o,j)=>`<li>${esc(o)}${S.fac&&j===q.a?" <b>(correct)</b>":""}</li>`).join("")}</ol></li>`).join("")}</ol>
+   ${S.fac?`<div class="facg"><h4>Delivery notes</h4><div class="prose">${x.facGuide||""}</div></div>`:""}</section>`).join("")}
+  <section class="pbreak"><h1>Assessment</h1><div class="prose"><p>${esc(L.assessment.summary)}</p><p><b>Pass:</b> ${esc(L.assessment.pass)}</p>${L.assessment.practical}</div>
+  ${L.capstone?`<h1 style="margin-top:20px">Capstone: ${esc(L.capstone.title)}</h1><div class="prose">${L.capstone.brief}</div>`:""}</section>`;
+  m.querySelectorAll(".rev").forEach(r=>r.classList.add("open"));wire(m,L.id+"-print");
+  $("#back").onclick=()=>render();window.scrollTo(0,0);
+}
+
+/* ---------- main render ---------- */
+function render(){
+  const r=route(),m=$("#main");
+  document.body.classList.toggle("facmode",S.fac);
+  const L=findLevel(r.a);
+  if(L&&r.b==="assessment")vAssess(m,L);
+  else if(L&&r.b==="capstone"&&L.capstone)vCapstone(m,L);
+  else if(L&&r.b&&findMod(L,r.b))vModule(m,L,findMod(L,r.b),r.c);
+  else if(L)vLevel(m,L);
+  else if(r.a==="map")vMap(m);
+  else if(r.a==="framework")vFramework(m);
+  else if(r.a==="programme")vProgramme(m);
+  else if(r.a==="glossary")vGlossary(m);
+  else if(r.a==="references")vRefs(m);
+  else if(r.a==="progress")vProgress(m);
+  else if(r.a==="full"&&PV)vFull(m);
+  else vHome(m);
+  renderRail();
+  m.focus({preventScroll:true});window.scrollTo(0,0);
+}
+$("#menuBtn").onclick=()=>{const o=$("#rail").classList.toggle("open");$("#menuBtn").setAttribute("aria-expanded",o);};
+const fb=$("#facBtn");if(PV){fb.hidden=true;S.fac=false;}const paintFac=()=>{fb.classList.toggle("on",S.fac);fb.setAttribute("aria-pressed",S.fac);};paintFac();
+fb.onclick=()=>{S.fac=!S.fac;save();paintFac();render();};
+render();
+</script>
+</body>
+</html>

@@ -29,6 +29,20 @@ The programme section covers the cross-level material: role-based routes, the co
 - **Participants** work through the modules. Exercise answers and knowledge-check scores are saved in that browser only. When a participant passes every knowledge check in a level, they can print a record of completion. Full certification still needs an assessor to sign off the practical assessment and any capstone.
 - **Facilitators** turn on **Facilitator mode** in the top bar. This shows model answers, debrief points and delivery notes. On any level page, **Print level pack** gives a printable participant pack, or a facilitator pack when Facilitator mode is on.
 
+## Preview edition (marketing)
+
+`pathway-preview/` is a trial version to share with prospective clients. One complete module is open at each level (5 of 32). Every other module shows its title, objective, tools and exercise name behind a lock, with a "Get the full pathway" page carrying the contact details.
+
+The preview files contain only what the preview shows. Facilitator notes, model answers, practical assessment briefs, capstone briefs and the programme toolkit are not in the output at all, so they cannot be read from the page source.
+
+Rebuild it after any content change:
+
+```
+node pathway/build-preview.js
+```
+
+The open modules, the contact details and the number of glossary terms are set at the top of `pathway/build-preview.js`.
+
 ## Editing content
 
 All course content is in `pathway/content/`:
