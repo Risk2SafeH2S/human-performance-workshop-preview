@@ -2,7 +2,7 @@
 
 A five-level human performance training pack for oil and gas teams, by H²S Consultants. It takes people from first awareness on site up to running a human performance programme.
 
-Open `pathway/index.html` in a browser. It is a static page: no build step and no server needed.
+Open `pathway/index.html` in a browser. It is a static page: no build step and no server needed. Views have bookmarkable addresses such as `#L3-L3M4-learn`.
 
 | Level | Course | Audience | Duration |
 |---|---|---|---|

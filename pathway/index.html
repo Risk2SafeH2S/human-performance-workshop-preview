@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Human Performance Pathway</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Five-level human performance training pack for oil and gas teams, from workforce awareness to master practitioner, by H²S Consultants.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -311,15 +312,15 @@ const findMod=(L,mid)=>L.modules.find(m=>m.id===mid||String(m.n)===String(mid));
 const allMods=()=>LEVELS.flatMap(L=>L.modules.map(m=>({L,m})));
 
 /* ---------- routing ---------- */
-// #/  #/map  #/L1  #/L1/L1M2/learn  #/framework  #/programme  #/glossary  #/progress
-function route(){const h=(location.hash||"#/").slice(2).split("/");return{a:h[0]||"",b:h[1]||"",c:h[2]||"learn"};}
-const go=p=>{location.hash="#/"+p;};
+// #start  #map  #L1  #L1-L1M2-learn  #L1-assessment  #framework  #programme  #glossary  #progress
+function route(){const h=(location.hash||"#").slice(1).replace(/^\//,"").split(/[-\/]/);return{a:h[0]||"",b:h[1]||"",c:h[2]||"learn"};}
+const go=p=>{location.hash=p?"#"+p.replace(/\//g,"-"):"#start";};
 window.addEventListener("hashchange",render);
 
 /* ---------- rail ---------- */
 function renderRail(){
   const r=route(),rail=$("#rail");rail.innerHTML="";
-  const nav=(label,path,num)=>{const b=el("button",{class:"ri",type:"button"},`<span class="n">${num||""}</span><span>${esc(label)}</span><span></span>`);if(r.a===path)b.setAttribute("aria-current","page");b.onclick=()=>{go(path);closeRail();};return b;};
+  const nav=(label,path,num)=>{const b=el("button",{class:"ri",type:"button"},`<span class="n">${num||""}</span><span>${esc(label)}</span><span></span>`);if(r.a===path||(path===""&&r.a==="start"))b.setAttribute("aria-current","page");b.onclick=()=>{go(path);closeRail();};return b;};
   rail.appendChild(el("h4",{},"Pathway"));
   rail.appendChild(nav("Start here","","·"));
   rail.appendChild(nav("Pathway map","map","·"));
@@ -381,7 +382,7 @@ function vHome(m){
     <div class="card"><h4>2 Practise</h4><p>Every module ends with a Gulf-region scenario exercise. Work it as a group; type answers to keep a record or copy them for the facilitator.</p></div>
     <div class="card"><h4>3 Check and prove</h4><p>Pass the knowledge check at 80% or above, then complete the level's practical assessment or capstone with an assessor.</p></div>
   </div>
-  <div class="callout" style="margin-top:18px"><h4>Facilitators</h4><p>Switch on <b>Facilitator mode</b> in the top bar to show model answers, debrief points and delivery notes in every module. Use <b>Print level pack</b> on any level page to produce a printed facilitator or participant pack.</p></div>
+  <div class="callout" style="margin-top:18px"><h4>Facilitators</h4><p>Switch on <b>Facilitator mode</b> in the top bar to show model answers, debrief points and delivery notes in every module. Use <b>Full level pack</b> on any level page to see a whole level on one page, ready to print as a participant or facilitator pack.</p></div>
   <p class="note" style="margin-top:14px">Content follows the Energy Institute human factors resources, HSE HSG48, IOGP, CCPS and the published research named in each module. All scenarios are composite and fictional.</p>`;
   ladder($("#ladder"));
 }
@@ -417,7 +418,7 @@ function vLevel(m,L){
     <div class="fact"><b>Duration</b><span>${esc(L.duration)}</span></div>
     <div class="fact"><b>Format</b><span>${esc(L.format)}</span></div>
   </div>
-  <div class="row noprint" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="startBtn" type="button">${lvlPct(L)?"Continue":"Start"} level</button><button class="btn gh" id="printBtn" type="button">Print level pack</button></div>
+  <div class="row noprint" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="startBtn" type="button">${lvlPct(L)?"Continue":"Start"} level</button><button class="btn gh" id="printBtn" type="button">Full level pack</button></div>
   <div class="prose">
   <h2>Learning outcomes</h2><ol>${L.outcomes.map(o=>`<li>${esc(o)}</li>`).join("")}</ol>
   <h2>Modules</h2></div>
@@ -428,7 +429,7 @@ function vLevel(m,L){
   <div class="prose"><h2>Timetable</h2></div>
   <div class="tbl"><table><thead><tr><th>Block</th><th>Content</th></tr></thead><tbody>${(L.schedule||[]).map(s=>`<tr><td>${esc(s.block)}</td><td>${esc(s.items)}</td></tr>`).join("")}</tbody></table></div>
   <div class="prose"><h2>Assessment</h2><p>${esc(L.assessment.summary)}</p><p><b>Pass criteria:</b> ${esc(L.assessment.pass)}</p>
-  <p><a href="#/${L.id}/assessment">Open the practical assessment brief</a>${L.capstone?` · <a href="#/${L.id}/capstone">Open the capstone brief</a>`:""}</p></div>`;
+  <p><a href="#${L.id}-assessment">Open the practical assessment brief</a>${L.capstone?` · <a href="#${L.id}-capstone">Open the capstone brief</a>`:""}</p></div>`;
   const ml=$("#mlist");
   L.modules.forEach(x=>{const s=mScore(x);const b=el("button",{class:"mrow",type:"button"},`<span class="n">${L.n}.${x.n}</span><span><b>${esc(x.t)}</b><small>${esc(x.obj)}</small></span><span class="pill ${mPassed(x)?"sub":s!==null?"draft":""}">${s!==null?Math.round(s*100)+"%":x.mins+" min"}</span>`);b.onclick=()=>go(`${L.id}/${x.id}/learn`);ml.appendChild(b);});
   $("#startBtn").onclick=()=>{const nx=L.modules.find(x=>!mPassed(x))||L.modules[0];go(`${L.id}/${nx.id}/learn`);};
@@ -553,18 +554,17 @@ function vProgress(m){
   <div class="tbl"><table><thead><tr><th>Level</th><th>Knowledge checks passed</th><th>Status</th></tr></thead><tbody>
   ${LEVELS.map(L=>`<tr><td>${esc(L.badge)} ${esc(L.title)}</td><td>${L.modules.filter(mPassed).length} / ${L.modules.length}</td><td>${lvlDone(L)?'<span class="pill sub">Knowledge complete</span>':lvlPct(L)?'<span class="pill draft">In progress</span>':"Not started"}</td></tr>`).join("")}</tbody></table></div>
   <div id="certs"></div>
-  <div class="row noprint" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px"><button class="btn gh" id="prt" type="button">Print</button><button class="btn gh" id="rst" type="button">Reset all progress</button></div>`;
+  <div class="row noprint" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px"><button class="btn gh" id="rst" type="button">Reset all progress</button></div>`;
   $("#pn").oninput=e=>{S.name=e.target.value;save();};
   const c=$("#certs");
   LEVELS.filter(lvlDone).forEach(L=>c.appendChild(el("div",{class:"cert lvl-c"+L.n},`<div class="eyebrow">H²S Consultants · Human performance pathway</div><h2>Record of completion</h2><p>This records that</p><div class="who">${esc(S.name||"Participant")}</div><p>has passed every knowledge check in</p><h3 style="font-size:20px;margin:6px 0">${esc(L.badge)} ${esc(L.title)}</h3><p class="note">Knowledge element only. Full ${esc(L.badge)} certification requires the practical assessment${L.capstone?" and capstone":""} signed off by a qualified assessor.</p><p class="note">Assessor: ____________________ Date: ____________</p>`)));
-  $("#prt").onclick=()=>window.print();
-  $("#rst").onclick=()=>{if(confirm("Clear all saved answers, scores and progress in this browser?")){S={name:"",fac:S.fac,quiz:{},ans:{},sort:{},seen:{}};save();render();}};
+    let armed=false;$("#rst").onclick=e=>{if(!armed){armed=true;e.target.textContent="Click again to clear all answers and scores";return;}S={name:"",fac:S.fac,quiz:{},ans:{},sort:{},seen:{}};save();render();toast("Progress cleared");};
 }
 
 /* ---------- print a whole level ---------- */
 function printLevel(L){
   setShell(false);const m=$("#main");
-  m.innerHTML=`<div class="noprint callout"><p>Print preview of the full ${esc(L.badge)} pack${S.fac?" with facilitator notes":""}. Turn Facilitator mode ${S.fac?"off":"on"} in the top bar to ${S.fac?"produce a participant":"include facilitator"} version.</p><button class="btn" id="doPrint" type="button">Print</button> <button class="btn gh" id="back" type="button">Back</button></div>
+  m.innerHTML=`<div class="noprint callout"><p>The whole ${esc(L.badge)} pack on one page${S.fac?", with facilitator notes":""}, laid out for your browser print command when the page is opened as a local file. Turn Facilitator mode ${S.fac?"off":"on"} in the top bar to ${S.fac?"produce a participant":"include facilitator"} version.</p><button class="btn gh" id="back" type="button">Back to level</button></div>
   <div class="eyebrow">Level ${L.n} · ${esc(L.badge)}</div><h1>${esc(L.title)}</h1><p class="lede">${esc(L.tagline)}</p>
   <div class="prose"><h2>Learning outcomes</h2><ol>${L.outcomes.map(o=>`<li>${esc(o)}</li>`).join("")}</ol></div>
   ${L.modules.map(x=>`<section class="pbreak"><div class="eyebrow">Module ${L.n}.${x.n} · ${x.mins} min</div><h1>${esc(x.t)}</h1><div class="obj"><b>Objective</b><p>${esc(x.obj)}</p></div>
@@ -576,7 +576,7 @@ function printLevel(L){
   <section class="pbreak"><h1>Assessment</h1><div class="prose"><p>${esc(L.assessment.summary)}</p><p><b>Pass:</b> ${esc(L.assessment.pass)}</p>${L.assessment.practical}</div>
   ${L.capstone?`<h1 style="margin-top:20px">Capstone: ${esc(L.capstone.title)}</h1><div class="prose">${L.capstone.brief}</div>`:""}</section>`;
   m.querySelectorAll(".rev").forEach(r=>r.classList.add("open"));wire(m,L.id+"-print");
-  $("#doPrint").onclick=()=>window.print();$("#back").onclick=()=>render();window.scrollTo(0,0);
+  $("#back").onclick=()=>render();window.scrollTo(0,0);
 }
 
 /* ---------- main render ---------- */
