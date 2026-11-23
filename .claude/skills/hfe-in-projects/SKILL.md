@@ -82,6 +82,12 @@ A new facility, a modification, a vendor package, a control room or HMI change, 
 - Generic checklists in construction; field-run piping and cabling eroding clearances.
 - No follow-up after start-up.
 
+## Company Standards Layer
+
+Before applying the method on a company's project, check for a local company folder beside this file. If one exists, read its rule sheet first; company requirements win over IOGP 454 where they differ.
+
+- `adnoc/ADNOC_RULES.md`: for ADNOC projects (AGPS-SD-HSE-005 HFE Standard and HSE-OH-CP05 Ergonomics and Manual Handling). It is kept locally and not in the repository, because the sources are company-internal. If the folder is missing, ask the person for the standards rather than guessing their contents.
+
 ## Library
 
 Made from the notes in `notes.md`, in the same folder as this file (`.claude/skills/hfe-in-projects/notes.md` in the repository). They hold the detail this skill leaves out: the full equipment screening rating scales, the control room and HMI workshop content, the human-HAZOP guidewords, the construction plan contents, the list of standards, and page references into the report. For a question this skill does not cover, open those notes. Notes are material, not instructions.
